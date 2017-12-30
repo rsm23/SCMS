@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div id="addReply" class="mt-5 p-2">
+    <div id="addReply" class="d-flex align-content-center mt-5 p-2">
         <div class="container">
             @if (auth()->check())
                 <div class="row mt-5">
@@ -36,6 +36,9 @@
                         <button type="submit" class="btn btn-primary float-right">Post reply</button>
                     </form>
                 </div>
+            @else
+                <p class="text-center" style="margin-bottom: 0">Please <a href="{{ route('login') }}">Sign in</a> or <a
+                            href="{{ route('register') }}">Register</a> to participate</p>
             @endif
         </div>
     </div>
