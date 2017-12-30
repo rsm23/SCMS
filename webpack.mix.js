@@ -17,6 +17,7 @@ mix.autoload({
     'tether-shepherd': ['Shepherd'],
     'popper.js/dist/popper.js': ['Popper']
 })
+    .styles('resources/assets/css/dashboard.css', 'public/css/dashboard.css')
     .js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .options({

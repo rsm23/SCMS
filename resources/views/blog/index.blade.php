@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5" id="blog">
         <div class="row">
             @foreach($posts as $post)
                 <div class="card col-md-4 d-inline-block" style="padding: 0;">

@@ -18,6 +18,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Users Routes
+Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth');
+
 //Blog routes
 Route::get('/blog', 'PostsController@index')->name('blog');
 Route::get('/blog/create', 'PostsController@create')->name('blogPostCreate')->middleware('auth');
@@ -26,6 +29,7 @@ Route::get('/blog/{post}', 'PostsController@show')->name('blogPost');
 Route::get('/blog/{post}/edit', 'PostsController@edit')->name('blogPostEdit')->middleware('auth');
 Route::patch('/blog/{post}', 'PostsController@update')->name('blogPostUpdate')->middleware('auth');
 Route::delete('/blog/{post}', 'PostsController@destroy')->name('blogPostDelete')->middleware('auth');
+Route::post('/blog/{post}/replies', 'RepliesController@store');
 
 //Administration routes
 Route::get('/dashboard', 'DashboardController@index')->name('blog')->name('dashboard')->middleware('auth');

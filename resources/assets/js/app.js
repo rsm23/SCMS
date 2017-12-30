@@ -23,3 +23,10 @@ const app = new Vue({
 import autosize from 'autosize';
 
 autosize(document.querySelectorAll('textarea.editor'));
+
+require('jquery-slimscroll');
+require('jquery-scroll-lock');
+require('jquery.appear');
+require('jquery-countto');
+require('js-cookie');
+require('./scms');

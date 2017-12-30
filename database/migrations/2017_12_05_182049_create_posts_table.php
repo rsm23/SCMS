@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('title');
-            $table->text('featured_image')->default('http://lorempixel.com/350/180/abstract');;
+            $table->text('featured_image')->default('https://cdn.pixabay.com/photo/2017/12/21/12/26/glowworm-3031704_960_720.jpg');;
             $table->string('slug');
             $table->text('body');
             $table->timestamps();

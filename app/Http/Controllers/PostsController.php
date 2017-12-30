@@ -61,6 +61,11 @@ class PostsController extends Controller
         return redirect('/blog/');
     }
 
+    public function addReply()
+    {
+        
+    }
+
     /**
      * Display the specified resource.
      *

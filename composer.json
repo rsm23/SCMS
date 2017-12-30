@@ -4,11 +4,13 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=7.0.0",
+        "andreasindal/laravel-markdown": "^2.0",
         "cviebrock/eloquent-sluggable": "^4.3",
         "fideloper/proxy": "~3.3",
-        "laravel-frontend-presets/bootstrap-4": "^0.9.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0"
     },

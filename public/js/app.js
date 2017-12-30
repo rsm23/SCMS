@@ -375,33 +375,6 @@ module.exports = {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10661,6 +10634,33 @@ return jQuery;
 
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13046,7 +13046,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(53);
+module.exports = __webpack_require__(58);
 
 
 /***/ }),
@@ -13055,7 +13055,7 @@ module.exports = __webpack_require__(53);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_autosize__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_autosize__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_autosize___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_autosize__);
 
 /**
@@ -13073,7 +13073,7 @@ window.Vue = __webpack_require__(38);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('editor', __webpack_require__(42));
+Vue.component('editor', __webpack_require__(41));
 
 var app = new Vue({
   el: '#app'
@@ -13082,6 +13082,13 @@ var app = new Vue({
 
 
 __WEBPACK_IMPORTED_MODULE_0_autosize___default()(document.querySelectorAll('textarea.editor'));
+
+__webpack_require__(52);
+__webpack_require__(53);
+__webpack_require__(54);
+__webpack_require__(55);
+__webpack_require__(56);
+__webpack_require__(57);
 
 /***/ }),
 /* 13 */
@@ -13101,7 +13108,7 @@ window._ = __webpack_require__(14);
  */
 
 try {
-  window.$ = __webpack_provided_window_dot_jQuery = __webpack_require__(2);
+  window.$ = __webpack_provided_window_dot_jQuery = __webpack_require__(1);
   __webpack_provided_window_dot_Tether = __webpack_require__(4);
   window.Popper = __WEBPACK_IMPORTED_MODULE_0_popper_js_dist_umd_popper_js___default.a;
   __webpack_require__(17);
@@ -13145,7 +13152,7 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2), __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
 /* 14 */
@@ -30237,7 +30244,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(15)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(15)(module)))
 
 /***/ }),
 /* 15 */
@@ -30273,7 +30280,7 @@ module.exports = function(module) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.12.9
+ * @version 1.13.0
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -32717,7 +32724,7 @@ return Popper;
 })));
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 17 */
@@ -36574,7 +36581,7 @@ return exports;
 }({},$,Popper));
 //# sourceMappingURL=bootstrap.js.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(18)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(18)))
 
 /***/ }),
 /* 18 */
@@ -36584,7 +36591,7 @@ return exports;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.12.9
+ * @version 1.13.0
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -38883,7 +38890,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 19 */
@@ -39765,7 +39772,7 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.5.9
+ * Vue.js v2.5.11
  * (c) 2014-2017 Evan You
  * Released under the MIT License.
  */
@@ -40108,6 +40115,7 @@ var config = ({
   /**
    * Option merge strategies (used in core/util/options)
    */
+  // $flow-disable-line
   optionMergeStrategies: Object.create(null),
 
   /**
@@ -40148,6 +40156,7 @@ var config = ({
   /**
    * Custom user key aliases for v-on
    */
+  // $flow-disable-line
   keyCodes: Object.create(null),
 
   /**
@@ -40582,8 +40591,7 @@ var arrayMethods = Object.create(arrayProto);[
   'splice',
   'sort',
   'reverse'
-]
-.forEach(function (method) {
+].forEach(function (method) {
   // cache original method
   var original = arrayProto[method];
   def(arrayMethods, method, function mutator () {
@@ -40915,18 +40923,18 @@ function mergeDataOrFn (
     // it has to be a function to pass previous merges.
     return function mergedDataFn () {
       return mergeData(
-        typeof childVal === 'function' ? childVal.call(this) : childVal,
-        typeof parentVal === 'function' ? parentVal.call(this) : parentVal
+        typeof childVal === 'function' ? childVal.call(this, this) : childVal,
+        typeof parentVal === 'function' ? parentVal.call(this, this) : parentVal
       )
     }
   } else {
     return function mergedInstanceDataFn () {
       // instance merge
       var instanceData = typeof childVal === 'function'
-        ? childVal.call(vm)
+        ? childVal.call(vm, vm)
         : childVal;
       var defaultData = typeof parentVal === 'function'
-        ? parentVal.call(vm)
+        ? parentVal.call(vm, vm)
         : parentVal;
       if (instanceData) {
         return mergeData(instanceData, defaultData)
@@ -41078,13 +41086,23 @@ var defaultStrat = function (parentVal, childVal) {
  */
 function checkComponents (options) {
   for (var key in options.components) {
-    var lower = key.toLowerCase();
-    if (isBuiltInTag(lower) || config.isReservedTag(lower)) {
-      warn(
-        'Do not use built-in or reserved HTML elements as component ' +
-        'id: ' + key
-      );
-    }
+    validateComponentName(key);
+  }
+}
+
+function validateComponentName (name) {
+  if (!/^[a-zA-Z][\w-]*$/.test(name)) {
+    warn(
+      'Invalid component name: "' + name + '". Component names ' +
+      'can only contain alphanumeric characters and the hyphen, ' +
+      'and must start with a letter.'
+    );
+  }
+  if (isBuiltInTag(name) || config.isReservedTag(name)) {
+    warn(
+      'Do not use built-in or reserved HTML elements as component ' +
+      'id: ' + name
+    );
   }
 }
 
@@ -41112,6 +41130,9 @@ function normalizeProps (options, vm) {
     for (var key in props) {
       val = props[key];
       name = camelize(key);
+      if ("development" !== 'production' && isPlainObject(val)) {
+        validatePropObject(name, val, vm);
+      }
       res[name] = isPlainObject(val)
         ? val
         : { type: val };
@@ -41124,6 +41145,26 @@ function normalizeProps (options, vm) {
     );
   }
   options.props = res;
+}
+
+/**
+ * Validate whether a prop object keys are valid.
+ */
+var propOptionsRE = /^(type|default|required|validator)$/;
+
+function validatePropObject (
+  propName,
+  prop,
+  vm
+) {
+  for (var key in prop) {
+    if (!propOptionsRE.test(key)) {
+      warn(
+        ("Invalid key \"" + key + "\" in validation rules object for prop \"" + propName + "\"."),
+        vm
+      );
+    }
+  }
 }
 
 /**
@@ -42273,6 +42314,8 @@ function eventsMixin (Vue) {
 
 /*  */
 
+
+
 /**
  * Runtime helper for resolving raw children VNodes into a slot object.
  */
@@ -42296,10 +42339,10 @@ function resolveSlots (
     if ((child.context === context || child.fnContext === context) &&
       data && data.slot != null
     ) {
-      var name = child.data.slot;
+      var name = data.slot;
       var slot = (slots[name] || (slots[name] = []));
       if (child.tag === 'template') {
-        slot.push.apply(slot, child.children);
+        slot.push.apply(slot, child.children || []);
       } else {
         slot.push(child);
       }
@@ -43140,6 +43183,7 @@ function getData (data, vm) {
 var computedWatcherOptions = { lazy: true };
 
 function initComputed (vm, computed) {
+  // $flow-disable-line
   var watchers = vm._computedWatchers = Object.create(null);
   // computed properties are just getters during SSR
   var isSSR = isServerRendering();
@@ -43370,11 +43414,11 @@ function resolveInject (inject, vm) {
     // inject is :any because flow is not smart enough to figure out cached
     var result = Object.create(null);
     var keys = hasSymbol
-        ? Reflect.ownKeys(inject).filter(function (key) {
-          /* istanbul ignore next */
-          return Object.getOwnPropertyDescriptor(inject, key).enumerable
-        })
-        : Object.keys(inject);
+      ? Reflect.ownKeys(inject).filter(function (key) {
+        /* istanbul ignore next */
+        return Object.getOwnPropertyDescriptor(inject, key).enumerable
+      })
+      : Object.keys(inject);
 
     for (var i = 0; i < keys.length; i++) {
       var key = keys[i];
@@ -43580,19 +43624,9 @@ function bindObjectProps (
  */
 function renderStatic (
   index,
-  isInFor,
-  isOnce
+  isInFor
 ) {
-  // render fns generated by compiler < 2.5.4 does not provide v-once
-  // information to runtime so be conservative
-  var isOldVersion = arguments.length < 3;
-  // if a static tree is generated by v-once, it is cached on the instance;
-  // otherwise it is purely static and can be cached on the shared options
-  // across all instances.
-  var renderFns = this.$options.staticRenderFns;
-  var cached = isOldVersion || isOnce
-    ? (this._staticTrees || (this._staticTrees = []))
-    : (renderFns.cached || (renderFns.cached = []));
+  var cached = this._staticTrees || (this._staticTrees = []);
   var tree = cached[index];
   // if has already-rendered static tree and not inside v-for,
   // we can reuse the same tree by doing a shallow clone.
@@ -43602,7 +43636,11 @@ function renderStatic (
       : cloneVNode(tree)
   }
   // otherwise, render a fresh tree.
-  tree = cached[index] = renderFns[index].call(this._renderProxy, null, this);
+  tree = cached[index] = this.$options.staticRenderFns[index].call(
+    this._renderProxy,
+    null,
+    this // for render fns generated for functional component templates
+  );
   markStatic(tree, ("__static__" + index), false);
   return tree
 }
@@ -43954,15 +43992,10 @@ function createComponentInstanceForVnode (
   parentElm,
   refElm
 ) {
-  var vnodeComponentOptions = vnode.componentOptions;
   var options = {
     _isComponent: true,
     parent: parent,
-    propsData: vnodeComponentOptions.propsData,
-    _componentTag: vnodeComponentOptions.tag,
     _parentVnode: vnode,
-    _parentListeners: vnodeComponentOptions.listeners,
-    _renderChildren: vnodeComponentOptions.children,
     _parentElm: parentElm || null,
     _refElm: refElm || null
   };
@@ -43972,7 +44005,7 @@ function createComponentInstanceForVnode (
     options.render = inlineTemplate.render;
     options.staticRenderFns = inlineTemplate.staticRenderFns;
   }
-  return new vnodeComponentOptions.Ctor(options)
+  return new vnode.componentOptions.Ctor(options)
 }
 
 function mergeHooks (data) {
@@ -44306,14 +44339,18 @@ function initMixin (Vue) {
 function initInternalComponent (vm, options) {
   var opts = vm.$options = Object.create(vm.constructor.options);
   // doing this because it's faster than dynamic enumeration.
+  var parentVnode = options._parentVnode;
   opts.parent = options.parent;
-  opts.propsData = options.propsData;
-  opts._parentVnode = options._parentVnode;
-  opts._parentListeners = options._parentListeners;
-  opts._renderChildren = options._renderChildren;
-  opts._componentTag = options._componentTag;
+  opts._parentVnode = parentVnode;
   opts._parentElm = options._parentElm;
   opts._refElm = options._refElm;
+
+  var vnodeComponentOptions = parentVnode.componentOptions;
+  opts.propsData = vnodeComponentOptions.propsData;
+  opts._parentListeners = vnodeComponentOptions.listeners;
+  opts._renderChildren = vnodeComponentOptions.children;
+  opts._componentTag = vnodeComponentOptions.tag;
+
   if (options.render) {
     opts.render = options.render;
     opts.staticRenderFns = options.staticRenderFns;
@@ -44447,14 +44484,8 @@ function initExtend (Vue) {
     }
 
     var name = extendOptions.name || Super.options.name;
-    if (true) {
-      if (!/^[a-zA-Z][\w-]*$/.test(name)) {
-        warn(
-          'Invalid component name: "' + name + '". Component names ' +
-          'can only contain alphanumeric characters and the hyphen, ' +
-          'and must start with a letter.'
-        );
-      }
+    if ("development" !== 'production' && name) {
+      validateComponentName(name);
     }
 
     var Sub = function VueComponent (options) {
@@ -44536,13 +44567,8 @@ function initAssetRegisters (Vue) {
         return this.options[type + 's'][id]
       } else {
         /* istanbul ignore if */
-        if (true) {
-          if (type === 'component' && config.isReservedTag(id)) {
-            warn(
-              'Do not use built-in or reserved HTML elements as component ' +
-              'id: ' + id
-            );
-          }
+        if ("development" !== 'production' && type === 'component') {
+          validateComponentName(id);
         }
         if (type === 'component' && isPlainObject(definition)) {
           definition.name = definition.name || id;
@@ -44749,7 +44775,7 @@ Object.defineProperty(Vue$3.prototype, '$ssrContext', {
   }
 });
 
-Vue$3.version = '2.5.9';
+Vue$3.version = '2.5.11';
 
 /*  */
 
@@ -44801,12 +44827,12 @@ function genClassForVnode (vnode) {
   var childNode = vnode;
   while (isDef(childNode.componentInstance)) {
     childNode = childNode.componentInstance._vnode;
-    if (childNode.data) {
+    if (childNode && childNode.data) {
       data = mergeClassData(childNode.data, data);
     }
   }
   while (isDef(parentNode = parentNode.parent)) {
-    if (parentNode.data) {
+    if (parentNode && parentNode.data) {
       data = mergeClassData(data, parentNode.data);
     }
   }
@@ -45317,6 +45343,9 @@ function createPatchFunction (backend) {
 
   function createChildren (vnode, children, insertedVnodeQueue) {
     if (Array.isArray(children)) {
+      if (true) {
+        checkDuplicateKeys(children);
+      }
       for (var i = 0; i < children.length; ++i) {
         createElm(children[i], insertedVnodeQueue, vnode.elm, null, true);
       }
@@ -45448,6 +45477,10 @@ function createPatchFunction (backend) {
     // during leaving transitions
     var canMove = !removeOnly;
 
+    if (true) {
+      checkDuplicateKeys(newCh);
+    }
+
     while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
       if (isUndef(oldStartVnode)) {
         oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
@@ -45480,13 +45513,6 @@ function createPatchFunction (backend) {
           createElm(newStartVnode, insertedVnodeQueue, parentElm, oldStartVnode.elm);
         } else {
           vnodeToMove = oldCh[idxInOld];
-          /* istanbul ignore if */
-          if ("development" !== 'production' && !vnodeToMove) {
-            warn(
-              'It seems there are duplicate keys that is causing an update error. ' +
-              'Make sure each v-for item has a unique key.'
-            );
-          }
           if (sameVnode(vnodeToMove, newStartVnode)) {
             patchVnode(vnodeToMove, newStartVnode, insertedVnodeQueue);
             oldCh[idxInOld] = undefined;
@@ -45504,6 +45530,24 @@ function createPatchFunction (backend) {
       addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx, insertedVnodeQueue);
     } else if (newStartIdx > newEndIdx) {
       removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
+    }
+  }
+
+  function checkDuplicateKeys (children) {
+    var seenKeys = {};
+    for (var i = 0; i < children.length; i++) {
+      var vnode = children[i];
+      var key = vnode.key;
+      if (isDef(key)) {
+        if (seenKeys[key]) {
+          warn(
+            ("Duplicate keys detected: '" + key + "'. This may cause an update error."),
+            vnode.context
+          );
+        } else {
+          seenKeys[key] = true;
+        }
+      }
     }
   }
 
@@ -45889,17 +45933,20 @@ function normalizeDirectives$1 (
 ) {
   var res = Object.create(null);
   if (!dirs) {
+    // $flow-disable-line
     return res
   }
   var i, dir;
   for (i = 0; i < dirs.length; i++) {
     dir = dirs[i];
     if (!dir.modifiers) {
+      // $flow-disable-line
       dir.modifiers = emptyModifiers;
     }
     res[getRawDirName(dir)] = dir;
     dir.def = resolveAsset(vm.$options, 'directives', dir.name, true);
   }
+  // $flow-disable-line
   return res
 }
 
@@ -46525,11 +46572,11 @@ function genCheckboxModel (
   var falseValueBinding = getBindingAttr(el, 'false-value') || 'false';
   addProp(el, 'checked',
     "Array.isArray(" + value + ")" +
-      "?_i(" + value + "," + valueBinding + ")>-1" + (
-        trueValueBinding === 'true'
-          ? (":(" + value + ")")
-          : (":_q(" + value + "," + trueValueBinding + ")")
-      )
+    "?_i(" + value + "," + valueBinding + ")>-1" + (
+      trueValueBinding === 'true'
+        ? (":(" + value + ")")
+        : (":_q(" + value + "," + trueValueBinding + ")")
+    )
   );
   addHandler(el, 'change',
     "var $$a=" + value + "," +
@@ -46546,9 +46593,9 @@ function genCheckboxModel (
 }
 
 function genRadioModel (
-    el,
-    value,
-    modifiers
+  el,
+  value,
+  modifiers
 ) {
   var number = modifiers && modifiers.number;
   var valueBinding = getBindingAttr(el, 'value') || 'null';
@@ -46558,9 +46605,9 @@ function genRadioModel (
 }
 
 function genSelect (
-    el,
-    value,
-    modifiers
+  el,
+  value,
+  modifiers
 ) {
   var number = modifiers && modifiers.number;
   var selectedVal = "Array.prototype.filter" +
@@ -46763,12 +46810,12 @@ function updateDOMProps (oldVnode, vnode) {
 function shouldUpdateValue (elm, checkVal) {
   return (!elm.composing && (
     elm.tagName === 'OPTION' ||
-    isDirty(elm, checkVal) ||
-    isInputChanged(elm, checkVal)
+    isNotInFocusAndDirty(elm, checkVal) ||
+    isDirtyWithModifiers(elm, checkVal)
   ))
 }
 
-function isDirty (elm, checkVal) {
+function isNotInFocusAndDirty (elm, checkVal) {
   // return true when textbox (.number and .trim) loses focus and its value is
   // not equal to the updated value
   var notInFocus = true;
@@ -46778,14 +46825,20 @@ function isDirty (elm, checkVal) {
   return notInFocus && elm.value !== checkVal
 }
 
-function isInputChanged (elm, newVal) {
+function isDirtyWithModifiers (elm, newVal) {
   var value = elm.value;
   var modifiers = elm._vModifiers; // injected by v-model runtime
-  if (isDef(modifiers) && modifiers.number) {
-    return toNumber(value) !== toNumber(newVal)
-  }
-  if (isDef(modifiers) && modifiers.trim) {
-    return value.trim() !== newVal.trim()
+  if (isDef(modifiers)) {
+    if (modifiers.lazy) {
+      // inputs with lazy should only be updated when not in focus
+      return false
+    }
+    if (modifiers.number) {
+      return toNumber(value) !== toNumber(newVal)
+    }
+    if (modifiers.trim) {
+      return value.trim() !== newVal.trim()
+    }
   }
   return value !== newVal
 }
@@ -46843,7 +46896,10 @@ function getStyle (vnode, checkChild) {
     var childNode = vnode;
     while (childNode.componentInstance) {
       childNode = childNode.componentInstance._vnode;
-      if (childNode.data && (styleData = normalizeStyleData(childNode.data))) {
+      if (
+        childNode && childNode.data &&
+        (styleData = normalizeStyleData(childNode.data))
+      ) {
         extend(res, styleData);
       }
     }
@@ -47999,7 +48055,7 @@ var TransitionGroup = {
       this._vnode,
       this.kept,
       false, // hydrating
-      true // removeOnly (!important, avoids unnecessary moves)
+      true // removeOnly (!important avoids unnecessary moves)
     );
     this._vnode = this.kept;
   },
@@ -48623,7 +48679,7 @@ function parseHTML (html, options) {
 var onRE = /^@|^v-on:/;
 var dirRE = /^v-|^@|^:/;
 var forAliasRE = /(.*?)\s+(?:in|of)\s+(.*)/;
-var forIteratorRE = /\((\{[^}]*\}|[^,{]*),([^,]*)(?:,([^,]*))?\)/;
+var forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
 var stripParensRE = /^\(|\)$/g;
 
 var argRE = /:(.*)$/;
@@ -48956,16 +49012,16 @@ function processFor (el) {
       return
     }
     el.for = inMatch[2].trim();
-    var alias = inMatch[1].trim();
+    var alias = inMatch[1].trim().replace(stripParensRE, '');
     var iteratorMatch = alias.match(forIteratorRE);
     if (iteratorMatch) {
-      el.alias = iteratorMatch[1].trim();
-      el.iterator1 = iteratorMatch[2].trim();
-      if (iteratorMatch[3]) {
-        el.iterator2 = iteratorMatch[3].trim();
+      el.alias = alias.replace(forIteratorRE, '');
+      el.iterator1 = iteratorMatch[1].trim();
+      if (iteratorMatch[2]) {
+        el.iterator2 = iteratorMatch[2].trim();
       }
     } else {
-      el.alias = alias.replace(stripParensRE, '');
+      el.alias = alias;
     }
   }
 }
@@ -49714,10 +49770,10 @@ function genElement (el, state) {
 }
 
 // hoist static sub-trees out
-function genStatic (el, state, once$$1) {
+function genStatic (el, state) {
   el.staticProcessed = true;
   state.staticRenderFns.push(("with(this){return " + (genElement(el, state)) + "}"));
-  return ("_m(" + (state.staticRenderFns.length - 1) + "," + (el.staticInFor ? 'true' : 'false') + "," + (once$$1 ? 'true' : 'false') + ")")
+  return ("_m(" + (state.staticRenderFns.length - 1) + (el.staticInFor ? ',true' : '') + ")")
 }
 
 // v-once
@@ -49743,7 +49799,7 @@ function genOnce (el, state) {
     }
     return ("_o(" + (genElement(el, state)) + "," + (state.onceId++) + "," + key + ")")
   } else {
-    return genStatic(el, state, true)
+    return genStatic(el, state)
   }
 }
 
@@ -50323,7 +50379,7 @@ function createCompilerCreator (baseCompile) {
         // merge custom directives
         if (options.directives) {
           finalOptions.directives = extend(
-            Object.create(baseOptions.directives),
+            Object.create(baseOptions.directives || null),
             options.directives
           );
         }
@@ -50484,7 +50540,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(39).setImmediate))
 
 /***/ }),
 /* 39 */
@@ -50736,23 +50792,22 @@ exports.clearImmediate = clearImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(6)))
 
 /***/ }),
-/* 41 */,
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(43)
+  __webpack_require__(42)
 }
-var normalizeComponent = __webpack_require__(48)
+var normalizeComponent = __webpack_require__(47)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(48)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(50)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50770,7 +50825,6 @@ var Component = normalizeComponent(
   __vue_module_identifier__
 )
 Component.options.__file = "resources/assets/js/components/Editor.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -50782,7 +50836,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-4a6f37e4", Component.options)
   } else {
     hotAPI.reload("data-v-4a6f37e4", Component.options)
-' + '  }
+  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -50792,17 +50846,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(44);
+var content = __webpack_require__(43);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(46)("0c16a4ea", content, false);
+var update = __webpack_require__(45)("0c16a4ea", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -50818,10 +50872,10 @@ if(false) {
 }
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(45)(undefined);
+exports = module.exports = __webpack_require__(44)(undefined);
 // imports
 
 
@@ -50832,7 +50886,7 @@ exports.push([module.i, "\ntextarea.editor, .wrap div {\n    display: inline-blo
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports) {
 
 /*
@@ -50914,7 +50968,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -50933,7 +50987,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(47)
+var listToStyles = __webpack_require__(46)
 
 /*
 type StyleObject = {
@@ -51135,7 +51189,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports) {
 
 /**
@@ -51168,7 +51222,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -51277,12 +51331,12 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_marked__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_marked__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_marked___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_marked__);
 //
 //
@@ -51317,7 +51371,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -52607,10 +52661,10 @@ if (true) {
   return this || (typeof window !== 'undefined' ? window : global);
 }());
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52649,7 +52703,7 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -52949,7 +53003,2895 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(jQuery) {/*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Version: 1.3.8
+ *
+ */
+(function($) {
+
+  $.fn.extend({
+    slimScroll: function(options) {
+
+      var defaults = {
+
+        // width in pixels of the visible scroll area
+        width : 'auto',
+
+        // height in pixels of the visible scroll area
+        height : '250px',
+
+        // width in pixels of the scrollbar and rail
+        size : '7px',
+
+        // scrollbar color, accepts any hex/color value
+        color: '#000',
+
+        // scrollbar position - left/right
+        position : 'right',
+
+        // distance in pixels between the side edge and the scrollbar
+        distance : '1px',
+
+        // default scroll position on load - top / bottom / $('selector')
+        start : 'top',
+
+        // sets scrollbar opacity
+        opacity : .4,
+
+        // enables always-on mode for the scrollbar
+        alwaysVisible : false,
+
+        // check if we should hide the scrollbar when user is hovering over
+        disableFadeOut : false,
+
+        // sets visibility of the rail
+        railVisible : false,
+
+        // sets rail color
+        railColor : '#333',
+
+        // sets rail opacity
+        railOpacity : .2,
+
+        // whether  we should use jQuery UI Draggable to enable bar dragging
+        railDraggable : true,
+
+        // defautlt CSS class of the slimscroll rail
+        railClass : 'slimScrollRail',
+
+        // defautlt CSS class of the slimscroll bar
+        barClass : 'slimScrollBar',
+
+        // defautlt CSS class of the slimscroll wrapper
+        wrapperClass : 'slimScrollDiv',
+
+        // check if mousewheel should scroll the window if we reach top/bottom
+        allowPageScroll : false,
+
+        // scroll amount applied to each mouse wheel step
+        wheelStep : 20,
+
+        // scroll amount applied when user is using gestures
+        touchScrollStep : 200,
+
+        // sets border radius
+        borderRadius: '7px',
+
+        // sets border radius of the rail
+        railBorderRadius : '7px'
+      };
+
+      var o = $.extend(defaults, options);
+
+      // do it for every element that matches selector
+      this.each(function(){
+
+      var isOverPanel, isOverBar, isDragg, queueHide, touchDif,
+        barHeight, percentScroll, lastScroll,
+        divS = '<div></div>',
+        minBarHeight = 30,
+        releaseScroll = false;
+
+        // used in event handlers and for better minification
+        var me = $(this);
+
+        // ensure we are not binding it again
+        if (me.parent().hasClass(o.wrapperClass))
+        {
+            // start from last bar position
+            var offset = me.scrollTop();
+
+            // find bar and rail
+            bar = me.siblings('.' + o.barClass);
+            rail = me.siblings('.' + o.railClass);
+
+            getBarHeight();
+
+            // check if we should scroll existing instance
+            if ($.isPlainObject(options))
+            {
+              // Pass height: auto to an existing slimscroll object to force a resize after contents have changed
+              if ( 'height' in options && options.height == 'auto' ) {
+                me.parent().css('height', 'auto');
+                me.css('height', 'auto');
+                var height = me.parent().parent().height();
+                me.parent().css('height', height);
+                me.css('height', height);
+              } else if ('height' in options) {
+                var h = options.height;
+                me.parent().css('height', h);
+                me.css('height', h);
+              }
+
+              if ('scrollTo' in options)
+              {
+                // jump to a static point
+                offset = parseInt(o.scrollTo);
+              }
+              else if ('scrollBy' in options)
+              {
+                // jump by value pixels
+                offset += parseInt(o.scrollBy);
+              }
+              else if ('destroy' in options)
+              {
+                // remove slimscroll elements
+                bar.remove();
+                rail.remove();
+                me.unwrap();
+                return;
+              }
+
+              // scroll content by the given offset
+              scrollContent(offset, false, true);
+            }
+
+            return;
+        }
+        else if ($.isPlainObject(options))
+        {
+            if ('destroy' in options)
+            {
+            	return;
+            }
+        }
+
+        // optionally set height to the parent's height
+        o.height = (o.height == 'auto') ? me.parent().height() : o.height;
+
+        // wrap content
+        var wrapper = $(divS)
+          .addClass(o.wrapperClass)
+          .css({
+            position: 'relative',
+            overflow: 'hidden',
+            width: o.width,
+            height: o.height
+          });
+
+        // update style for the div
+        me.css({
+          overflow: 'hidden',
+          width: o.width,
+          height: o.height
+        });
+
+        // create scrollbar rail
+        var rail = $(divS)
+          .addClass(o.railClass)
+          .css({
+            width: o.size,
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            display: (o.alwaysVisible && o.railVisible) ? 'block' : 'none',
+            'border-radius': o.railBorderRadius,
+            background: o.railColor,
+            opacity: o.railOpacity,
+            zIndex: 90
+          });
+
+        // create scrollbar
+        var bar = $(divS)
+          .addClass(o.barClass)
+          .css({
+            background: o.color,
+            width: o.size,
+            position: 'absolute',
+            top: 0,
+            opacity: o.opacity,
+            display: o.alwaysVisible ? 'block' : 'none',
+            'border-radius' : o.borderRadius,
+            BorderRadius: o.borderRadius,
+            MozBorderRadius: o.borderRadius,
+            WebkitBorderRadius: o.borderRadius,
+            zIndex: 99
+          });
+
+        // set position
+        var posCss = (o.position == 'right') ? { right: o.distance } : { left: o.distance };
+        rail.css(posCss);
+        bar.css(posCss);
+
+        // wrap it
+        me.wrap(wrapper);
+
+        // append to parent div
+        me.parent().append(bar);
+        me.parent().append(rail);
+
+        // make it draggable and no longer dependent on the jqueryUI
+        if (o.railDraggable){
+          bar.bind("mousedown", function(e) {
+            var $doc = $(document);
+            isDragg = true;
+            t = parseFloat(bar.css('top'));
+            pageY = e.pageY;
+
+            $doc.bind("mousemove.slimscroll", function(e){
+              currTop = t + e.pageY - pageY;
+              bar.css('top', currTop);
+              scrollContent(0, bar.position().top, false);// scroll content
+            });
+
+            $doc.bind("mouseup.slimscroll", function(e) {
+              isDragg = false;hideBar();
+              $doc.unbind('.slimscroll');
+            });
+            return false;
+          }).bind("selectstart.slimscroll", function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+          });
+        }
+
+        // on rail over
+        rail.hover(function(){
+          showBar();
+        }, function(){
+          hideBar();
+        });
+
+        // on bar over
+        bar.hover(function(){
+          isOverBar = true;
+        }, function(){
+          isOverBar = false;
+        });
+
+        // show on parent mouseover
+        me.hover(function(){
+          isOverPanel = true;
+          showBar();
+          hideBar();
+        }, function(){
+          isOverPanel = false;
+          hideBar();
+        });
+
+        // support for mobile
+        me.bind('touchstart', function(e,b){
+          if (e.originalEvent.touches.length)
+          {
+            // record where touch started
+            touchDif = e.originalEvent.touches[0].pageY;
+          }
+        });
+
+        me.bind('touchmove', function(e){
+          // prevent scrolling the page if necessary
+          if(!releaseScroll)
+          {
+  		      e.originalEvent.preventDefault();
+		      }
+          if (e.originalEvent.touches.length)
+          {
+            // see how far user swiped
+            var diff = (touchDif - e.originalEvent.touches[0].pageY) / o.touchScrollStep;
+            // scroll content
+            scrollContent(diff, true);
+            touchDif = e.originalEvent.touches[0].pageY;
+          }
+        });
+
+        // set up initial height
+        getBarHeight();
+
+        // check start position
+        if (o.start === 'bottom')
+        {
+          // scroll content to bottom
+          bar.css({ top: me.outerHeight() - bar.outerHeight() });
+          scrollContent(0, true);
+        }
+        else if (o.start !== 'top')
+        {
+          // assume jQuery selector
+          scrollContent($(o.start).position().top, null, true);
+
+          // make sure bar stays hidden
+          if (!o.alwaysVisible) { bar.hide(); }
+        }
+
+        // attach scroll events
+        attachWheel(this);
+
+        function _onWheel(e)
+        {
+          // use mouse wheel only when mouse is over
+          if (!isOverPanel) { return; }
+
+          var e = e || window.event;
+
+          var delta = 0;
+          if (e.wheelDelta) { delta = -e.wheelDelta/120; }
+          if (e.detail) { delta = e.detail / 3; }
+
+          var target = e.target || e.srcTarget || e.srcElement;
+          if ($(target).closest('.' + o.wrapperClass).is(me.parent())) {
+            // scroll content
+            scrollContent(delta, true);
+          }
+
+          // stop window scroll
+          if (e.preventDefault && !releaseScroll) { e.preventDefault(); }
+          if (!releaseScroll) { e.returnValue = false; }
+        }
+
+        function scrollContent(y, isWheel, isJump)
+        {
+          releaseScroll = false;
+          var delta = y;
+          var maxTop = me.outerHeight() - bar.outerHeight();
+
+          if (isWheel)
+          {
+            // move bar with mouse wheel
+            delta = parseInt(bar.css('top')) + y * parseInt(o.wheelStep) / 100 * bar.outerHeight();
+
+            // move bar, make sure it doesn't go out
+            delta = Math.min(Math.max(delta, 0), maxTop);
+
+            // if scrolling down, make sure a fractional change to the
+            // scroll position isn't rounded away when the scrollbar's CSS is set
+            // this flooring of delta would happened automatically when
+            // bar.css is set below, but we floor here for clarity
+            delta = (y > 0) ? Math.ceil(delta) : Math.floor(delta);
+
+            // scroll the scrollbar
+            bar.css({ top: delta + 'px' });
+          }
+
+          // calculate actual scroll amount
+          percentScroll = parseInt(bar.css('top')) / (me.outerHeight() - bar.outerHeight());
+          delta = percentScroll * (me[0].scrollHeight - me.outerHeight());
+
+          if (isJump)
+          {
+            delta = y;
+            var offsetTop = delta / me[0].scrollHeight * me.outerHeight();
+            offsetTop = Math.min(Math.max(offsetTop, 0), maxTop);
+            bar.css({ top: offsetTop + 'px' });
+          }
+
+          // scroll content
+          me.scrollTop(delta);
+
+          // fire scrolling event
+          me.trigger('slimscrolling', ~~delta);
+
+          // ensure bar is visible
+          showBar();
+
+          // trigger hide when scroll is stopped
+          hideBar();
+        }
+
+        function attachWheel(target)
+        {
+          if (window.addEventListener)
+          {
+            target.addEventListener('DOMMouseScroll', _onWheel, false );
+            target.addEventListener('mousewheel', _onWheel, false );
+          }
+          else
+          {
+            document.attachEvent("onmousewheel", _onWheel)
+          }
+        }
+
+        function getBarHeight()
+        {
+          // calculate scrollbar height and make sure it is not too small
+          barHeight = Math.max((me.outerHeight() / me[0].scrollHeight) * me.outerHeight(), minBarHeight);
+          bar.css({ height: barHeight + 'px' });
+
+          // hide scrollbar if content is not long enough
+          var display = barHeight == me.outerHeight() ? 'none' : 'block';
+          bar.css({ display: display });
+        }
+
+        function showBar()
+        {
+          // recalculate bar height
+          getBarHeight();
+          clearTimeout(queueHide);
+
+          // when bar reached top or bottom
+          if (percentScroll == ~~percentScroll)
+          {
+            //release wheel
+            releaseScroll = o.allowPageScroll;
+
+            // publish approporiate event
+            if (lastScroll != percentScroll)
+            {
+                var msg = (~~percentScroll == 0) ? 'top' : 'bottom';
+                me.trigger('slimscroll', msg);
+            }
+          }
+          else
+          {
+            releaseScroll = false;
+          }
+          lastScroll = percentScroll;
+
+          // show only when required
+          if(barHeight >= me.outerHeight()) {
+            //allow window scroll
+            releaseScroll = true;
+            return;
+          }
+          bar.stop(true,true).fadeIn('fast');
+          if (o.railVisible) { rail.stop(true,true).fadeIn('fast'); }
+        }
+
+        function hideBar()
+        {
+          // only hide when options allow it
+          if (!o.alwaysVisible)
+          {
+            queueHide = setTimeout(function(){
+              if (!(o.disableFadeOut && isOverPanel) && !isOverBar && !isDragg)
+              {
+                bar.fadeOut('slow');
+                rail.fadeOut('slow');
+              }
+            }, 1000);
+          }
+        }
+
+      });
+
+      // maintain chainability
+      return this;
+    }
+  });
+
+  $.fn.extend({
+    slimscroll: $.fn.slimScroll
+  });
+
+})(jQuery);
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
 /* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Scroll Lock v3.1.3
+ * https://github.com/MohammadYounes/jquery-scrollLock
+ *
+ * Copyright (c) 2017 Mohammad Younes
+ * Licensed under GPL 3.
+ */
+;(function (factory) {
+  if (true) {
+    // AMD. Register as an anonymous module.
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+  } else {
+    // Browser globals
+    factory(jQuery)
+  }
+}(function ($) {
+  'use strict'
+  var keys = { space: 32, pageup: 33, pagedown: 34, end: 35, home: 36,  up: 38, down: 40 }
+  var processScrollEvent = function (event, $element) {
+    var scrollTop = $element.scrollTop(),
+      scrollHeight = $element.prop('scrollHeight'),
+      clientHeight = $element.prop('clientHeight'),
+      delta = event.originalEvent.wheelDelta || (-1 * event.originalEvent.detail) || (-1 * event.originalEvent.deltaY),
+      deltaY = 0
+    if (event.type === 'wheel') {
+      var ratio = $element.height() / $(window).height()
+      deltaY = event.originalEvent.deltaY * ratio
+    } else if (this.options.touch && event.type === 'touchmove') {
+      delta = event.originalEvent.changedTouches[0].clientY - this.startClientY
+    }
+    var top, prevent
+    prevent = (top = delta > 0 && scrollTop + deltaY <= 0) || delta < 0 && scrollTop + deltaY >= scrollHeight - clientHeight
+    return {prevent: prevent, top: top, scrollTop: scrollTop, deltaY: deltaY }
+  }
+  var processKeyboardEvent = function (event, $element) {
+    var scrollTop = $element.scrollTop(),
+      result = {top: false, bottom: false}
+    result.top = scrollTop === 0 && (event.keyCode === keys.pageup || event.keyCode === keys.home || event.keyCode === keys.up)
+    if (!result.top) {
+      var scrollHeight = $element.prop('scrollHeight'),
+        clientHeight = $element.prop('clientHeight')
+      result.bottom = scrollHeight === scrollTop + clientHeight && (event.keyCode === keys.space || event.keyCode === keys.pagedown || event.keyCode === keys.end || event.keyCode === keys.down)
+    }
+    return result
+  }
+  var ScrollLock = function ($element, options) {
+    this.$element = $element
+    this.options = $.extend({}, ScrollLock.DEFAULTS, this.$element.data(), options)
+    this.enabled = true
+    this.startClientY = 0
+    if (this.options.unblock) {
+      this.$element.on(ScrollLock.CORE.wheelEventName + ScrollLock.NAMESPACE, this.options.unblock, $.proxy(ScrollLock.CORE.unblockHandler, this))
+    }
+    this.$element.on(ScrollLock.CORE.wheelEventName + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.handler, this))
+    if (this.options.touch) {
+      this.$element.on('touchstart' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.touchHandler, this))
+      this.$element.on('touchmove' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.handler, this))
+      
+      if (this.options.unblock) {
+        this.$element.on('touchmove' + ScrollLock.NAMESPACE, this.options.unblock, $.proxy(ScrollLock.CORE.unblockHandler, this))
+      }
+    }
+    if (this.options.keyboard) {
+      this.$element.attr('tabindex', this.options.keyboard.tabindex || 0)
+      this.$element.on('keydown' + ScrollLock.NAMESPACE, this.options.selector, $.proxy(ScrollLock.CORE.keyboardHandler, this))
+
+      if (this.options.unblock) {
+        this.$element.on('keydown' + ScrollLock.NAMESPACE, this.options.unblock, $.proxy(ScrollLock.CORE.unblockHandler, this))
+      }
+    }
+  }
+  ScrollLock.NAME = 'ScrollLock'
+  ScrollLock.VERSION = '3.1.2'
+  ScrollLock.NAMESPACE = '.scrollLock'
+  ScrollLock.ANIMATION_NAMESPACE = ScrollLock.NAMESPACE + '.effect'
+  ScrollLock.DEFAULTS = {
+    strict: false,
+    strictFn: function ($element) {
+      return $element.prop('scrollHeight') > $element.prop('clientHeight')
+    },
+    selector: false,
+    animation: false,
+    touch: 'ontouchstart' in window,
+    keyboard: false,
+    unblock: false
+  }
+  ScrollLock.CORE = {
+    wheelEventName: 'onwheel' in document.createElement('div') ? 'wheel' : // Modern browsers support "wheel"
+      document.onmousewheel !== undefined ? 'mousewheel' : // Webkit and IE support at least "mousewheel"
+        'DOMMouseScroll', // let's assume that remaining browsers are older Firefox,
+    animationEventName: [
+        'webkitAnimationEnd',
+        'mozAnimationEnd',
+        'MSAnimationEnd',
+        'oanimationend',
+        'animationend'
+      ].join(ScrollLock.ANIMATION_NAMESPACE + ' ') + ScrollLock.ANIMATION_NAMESPACE,
+    unblockHandler: function (event) {
+      event.__currentTarget = event.currentTarget
+    },
+    handler: function (event) {
+      // allow zooming
+      if (this.enabled && !event.ctrlKey) {
+        var $this = $(event.currentTarget)
+        if (this.options.strict !== true || this.options.strictFn($this)) {
+          // Support for nested scrollable blocks (see https://github.com/MohammadYounes/jquery-scrollLock/issues/4)
+          event.stopPropagation()
+          var result = $.proxy(processScrollEvent, this)(event, $this)
+          if (event.__currentTarget)
+            result.prevent &= $.proxy(processScrollEvent, this)(event, $(event.__currentTarget)).prevent
+          if (result.prevent) {
+            event.preventDefault()
+            if (result.deltaY) {
+              $this.scrollTop(result.scrollTop + result.deltaY)
+            }
+            var key = result.top ? 'top' : 'bottom'
+            if (this.options.animation) {
+              setTimeout(ScrollLock.CORE.animationHandler.bind(this, $this, key), 0)
+            }
+            $this.trigger($.Event(key + ScrollLock.NAMESPACE))
+          }
+        }
+      }
+    },
+    touchHandler: function (event) {
+      this.startClientY = event.originalEvent.touches[0].clientY
+    },
+    animationHandler: function ($element, key) {
+      var css = this.options.animation[key],
+        all = this.options.animation.top + ' ' + this.options.animation.bottom
+      $element.off(ScrollLock.ANIMATION_NAMESPACE)
+        .removeClass(all)
+        .addClass(css)
+        .one(ScrollLock.CORE.animationEventName,
+          function () {
+            $element.removeClass(css)
+          })
+    },
+    keyboardHandler: function (event) {
+      var $this = $(event.currentTarget),
+        scrollTop = $this.scrollTop(),
+        result = processKeyboardEvent(event, $this)
+      if (event.__currentTarget) {
+        var result2 = processKeyboardEvent(event, $(event.__currentTarget))
+        result.top &= result2.top
+        result.bottom &= result2.bottom
+      }
+      if (result.top) {
+        $this.trigger($.Event('top' + ScrollLock.NAMESPACE))
+        if (this.options.animation) {
+          setTimeout(ScrollLock.CORE.animationHandler.bind(this, $this, 'top'), 0)
+        }
+        return false
+      } else if (result.bottom) {
+        $this.trigger($.Event('bottom' + ScrollLock.NAMESPACE))
+        if (this.options.animation) {
+          setTimeout(ScrollLock.CORE.animationHandler.bind(this, $this, 'bottom'), 0)
+        }
+        return false
+      }
+    }
+  }
+  ScrollLock.prototype.toggleStrict = function () {
+    this.options.strict = !this.options.strict
+  }
+  ScrollLock.prototype.enable = function () {
+    this.enabled = true
+  }
+  ScrollLock.prototype.disable = function () {
+    this.enabled = false
+  }
+  ScrollLock.prototype.destroy = function () {
+    this.disable()
+    this.$element.off(ScrollLock.NAMESPACE)
+    this.$element = null
+    this.options = null
+  }
+  // plugin defintion.
+  var old = $.fn.scrollLock
+  $.fn.scrollLock = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+      var options = typeof option == 'object' && option
+      var data = $this.data(ScrollLock.NAME)
+      if (!data && 'destroy' === option) return
+      if (!data) $this.data(ScrollLock.NAME, (data = new ScrollLock($this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+  $.fn.scrollLock.defaults = ScrollLock.DEFAULTS
+  // no conflict
+  $.fn.scrollLock.noConflict = function () {
+    $.fn.scrollLock = old
+    return this
+  }
+}));
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+ * jQuery.appear
+ * https://github.com/bas2k/jquery.appear/
+ * http://code.google.com/p/jquery-appear/
+ * http://bas2k.ru/
+ *
+ * Copyright (c) 2009 Michael Hixson
+ * Copyright (c) 2012-2014 Alexander Brovikov
+ * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
+ */
+(function (root, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof module === 'object' && module.exports) {
+        factory(require('jquery'));
+    } else {
+        factory(root.jQuery);
+    }
+}(this, function ($) {
+    $.fn.appear = function(fn, options) {
+
+        var settings = $.extend({
+
+            //arbitrary data to pass to fn
+            data: undefined,
+
+            //call fn only on the first appear?
+            one: true,
+
+            // X & Y accuracy
+            accX: 0,
+            accY: 0
+
+        }, options);
+
+        return this.each(function() {
+
+            var t = $(this);
+
+            //whether the element is currently visible
+            t.appeared = false;
+
+            if (!fn) {
+
+                //trigger the custom event
+                t.trigger('appear', settings.data);
+                return;
+            }
+
+            var w = $(window);
+
+            //fires the appear event when appropriate
+            var check = function() {
+
+                //is the element hidden?
+                if (!t.is(':visible')) {
+
+                    //it became hidden
+                    t.appeared = false;
+                    return;
+                }
+
+                //is the element inside the visible window?
+                var a = w.scrollLeft();
+                var b = w.scrollTop();
+                var o = t.offset();
+                var x = o.left;
+                var y = o.top;
+
+                var ax = settings.accX;
+                var ay = settings.accY;
+                var th = t.height();
+                var wh = w.height();
+                var tw = t.width();
+                var ww = w.width();
+
+                if (y + th + ay >= b &&
+                    y <= b + wh + ay &&
+                    x + tw + ax >= a &&
+                    x <= a + ww + ax) {
+
+                    //trigger the custom event
+                    if (!t.appeared) t.trigger('appear', settings.data);
+
+                } else {
+
+                    //it scrolled out of view
+                    t.appeared = false;
+                }
+            };
+
+            //create a modified fn with some additional logic
+            var modifiedFn = function() {
+
+                //mark the element as visible
+                t.appeared = true;
+
+                //is this supposed to happen only once?
+                if (settings.one) {
+
+                    //remove the check
+                    w.unbind('scroll', check);
+                    var i = $.inArray(check, $.fn.appear.checks);
+                    if (i >= 0) $.fn.appear.checks.splice(i, 1);
+                }
+
+                //trigger the original fn
+                fn.apply(this, arguments);
+            };
+
+            //bind the modified fn to the element
+            if (settings.one) t.one('appear', settings.data, modifiedFn);
+            else t.bind('appear', settings.data, modifiedFn);
+
+            //check whenever the window scrolls
+            w.scroll(check);
+
+            //check whenever the dom changes
+            $.fn.appear.checks.push(check);
+
+            //check now
+            (check)();
+        });
+    };
+
+    //keep a queue of appearance checks
+    $.extend($.fn.appear, {
+
+        checks: [],
+        timeout: null,
+
+        //process the queue
+        checkAll: function() {
+            var length = $.fn.appear.checks.length;
+            if (length > 0) while (length--) ($.fn.appear.checks[length])();
+        },
+
+        //check the queue asynchronously
+        run: function() {
+            if ($.fn.appear.timeout) clearTimeout($.fn.appear.timeout);
+            $.fn.appear.timeout = setTimeout($.fn.appear.checkAll, 20);
+        }
+    });
+
+    //run checks when these methods are called
+    $.each(['append', 'prepend', 'after', 'before', 'attr',
+        'removeAttr', 'addClass', 'removeClass', 'toggleClass',
+        'remove', 'css', 'show', 'hide'], function(i, n) {
+        var old = $.fn[n];
+        if (old) {
+            $.fn[n] = function() {
+                var r = old.apply(this, arguments);
+                $.fn.appear.run();
+                return r;
+            }
+        }
+    });
+}));
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (factory) {
+    if (true) {
+        // AMD
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports === 'object') {
+        // CommonJS
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
+  var CountTo = function (element, options) {
+    this.$element = $(element);
+    this.options  = $.extend({}, CountTo.DEFAULTS, this.dataOptions(), options);
+    this.init();
+  };
+
+  CountTo.DEFAULTS = {
+    from: 0,               // the number the element should start at
+    to: 0,                 // the number the element should end at
+    speed: 1000,           // how long it should take to count between the target numbers
+    refreshInterval: 100,  // how often the element should be updated
+    decimals: 0,           // the number of decimal places to show
+    formatter: formatter,  // handler for formatting the value before rendering
+    onUpdate: null,        // callback method for every time the element is updated
+    onComplete: null       // callback method for when the element finishes updating
+  };
+
+  CountTo.prototype.init = function () {
+    this.value     = this.options.from;
+    this.loops     = Math.ceil(this.options.speed / this.options.refreshInterval);
+    this.loopCount = 0;
+    this.increment = (this.options.to - this.options.from) / this.loops;
+  };
+
+  CountTo.prototype.dataOptions = function () {
+    var options = {
+      from:            this.$element.data('from'),
+      to:              this.$element.data('to'),
+      speed:           this.$element.data('speed'),
+      refreshInterval: this.$element.data('refresh-interval'),
+      decimals:        this.$element.data('decimals')
+    };
+
+    var keys = Object.keys(options);
+
+    for (var i in keys) {
+      var key = keys[i];
+
+      if (typeof(options[key]) === 'undefined') {
+        delete options[key];
+      }
+    }
+
+    return options;
+  };
+
+  CountTo.prototype.update = function () {
+    this.value += this.increment;
+    this.loopCount++;
+
+    this.render();
+
+    if (typeof(this.options.onUpdate) == 'function') {
+      this.options.onUpdate.call(this.$element, this.value);
+    }
+
+    if (this.loopCount >= this.loops) {
+      clearInterval(this.interval);
+      this.value = this.options.to;
+
+      if (typeof(this.options.onComplete) == 'function') {
+        this.options.onComplete.call(this.$element, this.value);
+      }
+    }
+  };
+
+  CountTo.prototype.render = function () {
+    var formattedValue = this.options.formatter.call(this.$element, this.value, this.options);
+    this.$element.text(formattedValue);
+  };
+
+  CountTo.prototype.restart = function () {
+    this.stop();
+    this.init();
+    this.start();
+  };
+
+  CountTo.prototype.start = function () {
+    this.stop();
+    this.render();
+    this.interval = setInterval(this.update.bind(this), this.options.refreshInterval);
+  };
+
+  CountTo.prototype.stop = function () {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  };
+
+  CountTo.prototype.toggle = function () {
+    if (this.interval) {
+      this.stop();
+    } else {
+      this.start();
+    }
+  };
+
+  function formatter(value, options) {
+    return value.toFixed(options.decimals);
+  }
+
+  $.fn.countTo = function (option) {
+    return this.each(function () {
+      var $this   = $(this);
+      var data    = $this.data('countTo');
+      var init    = !data || typeof(option) === 'object';
+      var options = typeof(option) === 'object' ? option : {};
+      var method  = typeof(option) === 'string' ? option : 'start';
+
+      if (init) {
+        if (data) data.stop();
+        $this.data('countTo', data = new CountTo(this, options));
+      }
+
+      data[method].call(data);
+    });
+  };
+}));
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * JavaScript Cookie v2.2.0
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+;(function (factory) {
+	var registeredInModuleLoader = false;
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		registeredInModuleLoader = true;
+	}
+	if (true) {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function init (converter) {
+		function api (key, value, attributes) {
+			var result;
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			// Write
+
+			if (arguments.length > 1) {
+				attributes = extend({
+					path: '/'
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === 'number') {
+					var expires = new Date();
+					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+					attributes.expires = expires;
+				}
+
+				// We're using "expires" because "max-age" is not supported by IE
+				attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
+				try {
+					result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				if (!converter.write) {
+					value = encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				} else {
+					value = converter.write(value, key);
+				}
+
+				key = encodeURIComponent(String(key));
+				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+				key = key.replace(/[\(\)]/g, escape);
+
+				var stringifiedAttributes = '';
+
+				for (var attributeName in attributes) {
+					if (!attributes[attributeName]) {
+						continue;
+					}
+					stringifiedAttributes += '; ' + attributeName;
+					if (attributes[attributeName] === true) {
+						continue;
+					}
+					stringifiedAttributes += '=' + attributes[attributeName];
+				}
+				return (document.cookie = key + '=' + value + stringifiedAttributes);
+			}
+
+			// Read
+
+			if (!key) {
+				result = {};
+			}
+
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all. Also prevents odd result when
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var rdecode = /(%[0-9A-Z]{2})+/g;
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (!this.json && cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = parts[0].replace(rdecode, decodeURIComponent);
+					cookie = converter.read ?
+						converter.read(cookie, name) : converter(cookie, name) ||
+						cookie.replace(rdecode, decodeURIComponent);
+
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					if (key === name) {
+						result = cookie;
+						break;
+					}
+
+					if (!key) {
+						result[name] = cookie;
+					}
+				} catch (e) {}
+			}
+
+			return result;
+		}
+
+		api.set = api;
+		api.get = function (key) {
+			return api.call(api, key);
+		};
+		api.getJSON = function () {
+			return api.apply({
+				json: true
+			}, [].slice.call(arguments));
+		};
+		api.defaults = {};
+
+		api.remove = function (key, attributes) {
+			api(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(jQuery) {/*
+ *  Document   : scms.js
+ *  Author     : Rahmani Saif
+ *
+ */
+
+
+
+var Scms = function () {
+    var lHtml, lBody, lPage, lSidebar, lSidebarScroll, lSideOverlay, lSideOverlayScroll, lHeader, lHeaderSearch, lHeaderSearchInput, lHeaderLoader, lMain, lFooter, windowW;
+
+    // Set helper variables
+    var uiInit = function uiInit() {
+        lHtml = jQuery('html');
+        lBody = jQuery('body');
+        lPage = jQuery('#page-container');
+        lSidebar = jQuery('#sidebar');
+        lSidebarScroll = jQuery('#sidebar-scroll');
+        lSideOverlay = jQuery('#side-overlay');
+        lSideOverlayScroll = jQuery('#side-overlay-scroll');
+        lHeader = jQuery('#page-header');
+        lHeaderSearch = jQuery('#page-header-search');
+        lHeaderSearchInput = jQuery('#page-header-search-input');
+        lHeaderLoader = jQuery('#page-header-loader');
+        lMain = jQuery('#main-container');
+        lFooter = jQuery('#page-footer');
+    };
+
+    /*
+     ********************************************************************************************
+     *
+     * BASE UI FUNCTIONALITY
+     *
+     * Functions which handle vital UI functionality such as main navigation and layout
+     * They are auto initialized
+     *
+     *********************************************************************************************
+     */
+
+    // Handles sidebar and side overlay custom scrolling functionality
+    var uiHandleScroll = function uiHandleScroll(mode) {
+        windowW = getWidth();
+
+        // Init scrolling
+        if (mode === 'init') {
+            var sScrollTimeout;
+
+            // Unbind events in case they are already binded
+            jQuery(window).off('resize.cb.scroll orientationchange.cb.scroll');
+
+            // Bind the events
+            jQuery(window).on('resize.cb.scroll orientationchange.cb.scroll', function () {
+                clearTimeout(sScrollTimeout);
+
+                sScrollTimeout = setTimeout(function () {
+                    uiHandleScroll();
+                }, 150);
+            }).triggerHandler('resize.cb.scroll');
+        } else {
+            // If screen width is greater than 991 pixels and .side-scroll is added to #page-container
+            if (windowW > 991 && lPage.hasClass('side-scroll')) {
+                // Turn scroll lock off (sidebar and side overlay - slimScroll will take care of it)
+                jQuery(lSidebar).add(lSideOverlay).scrollLock('disable');
+
+                // If sidebar scrolling does not exist init it..
+                if (lSidebarScroll.length && !lSidebarScroll.parent('.slimScrollDiv').length) {
+                    lSidebarScroll.slimScroll({
+                        height: lSidebar.outerHeight(),
+                        color: '#cdcdcd',
+                        size: '4px',
+                        opacity: .9,
+                        wheelStep: 15,
+                        distance: '0',
+                        railVisible: false,
+                        railOpacity: 1
+                    });
+
+                    // Small hack, so that scrolling works if the mouse is over the scrolling area on load and hasn't moved yet
+                    lSidebarScroll.mouseover();
+                } else {
+                    // ..else resize scrolling height
+                    lSidebarScroll.add(lSidebarScroll.parent()).css('height', lSidebar.outerHeight());
+
+                    // Small hack, so that scrolling works if the mouse is over the scrolling area on load and hasn't moved yet
+                    lSidebarScroll.mouseover();
+                }
+
+                // If side overlay scrolling does not exist init it..
+                if (lSideOverlayScroll.length && !lSideOverlayScroll.parent('.slimScrollDiv').length) {
+                    lSideOverlayScroll.slimScroll({
+                        height: lSideOverlay.outerHeight(),
+                        color: '#cdcdcd',
+                        size: '4px',
+                        opacity: .9,
+                        wheelStep: 15,
+                        distance: '0',
+                        railVisible: false,
+                        railOpacity: 1
+                    });
+                } else {
+                    // ..else resize scrolling height
+                    lSideOverlayScroll.add(lSideOverlayScroll.parent()).css('height', lSideOverlay.outerHeight());
+                }
+            } else {
+                // Turn scroll lock on (sidebar and side overlay)
+                jQuery(lSidebar).add(lSideOverlay).scrollLock('enable');
+
+                // If sidebar scrolling exists destroy it..
+                if (lSidebarScroll.length && lSidebarScroll.parent('.slimScrollDiv').length) {
+                    lSidebarScroll.slimScroll({ destroy: true });
+                    lSidebarScroll.attr('style', '');
+                }
+
+                // If side overlay scrolling exists destroy it..
+                if (lSideOverlayScroll.length && lSideOverlayScroll.parent('.slimScrollDiv').length) {
+                    lSideOverlayScroll.slimScroll({ destroy: true });
+                    lSideOverlayScroll.attr('style', '');
+                }
+            }
+        }
+    };
+
+    // Resizes #main-container to fill empty space if exists (pushes footer to the bottom) + Adds transition to sidebar (small fix for IE)
+    var uiHandleMain = function uiHandleMain() {
+        var resizeTimeout;
+
+        // Unbind events in case they are already binded
+        jQuery(window).off('resize.cb.main orientationchange.cb.main');
+
+        // If #main-container element exists
+        if (lMain.length) {
+            jQuery(window).on('resize.cb.main orientationchange.cb.main', function () {
+                clearTimeout(resizeTimeout);
+
+                resizeTimeout = setTimeout(function () {
+                    var hWindow = jQuery(window).height();
+                    var hHeader = lHeader.outerHeight() || 0;
+                    var hFooter = lFooter.outerHeight() || 0;
+
+                    // Set #main-container min height accordingly
+                    if (lPage.hasClass('page-header-fixed') || lPage.hasClass('page-header-glass')) {
+                        lMain.css('min-height', hWindow - hFooter);
+                    } else {
+                        lMain.css('min-height', hWindow - hHeader - hFooter);
+                    }
+
+                    // Show footer's content
+                    lFooter.fadeTo(1000, 1);
+                }, 150);
+            }).triggerHandler('resize.cb.main');
+        }
+
+        // Add 'side-trans-enabled' class to #page-container (enables sidebar and side overlay transition on open/close)
+        // Fixes IE10, IE11 and Edge bug in which animation was executed on each page load - really annoying!
+        lPage.addClass('side-trans-enabled');
+    };
+
+    // Handles header related classes
+    var uiHandleHeader = function uiHandleHeader() {
+        // Unbind event in case it is already enabled
+        jQuery(window).off('scroll.cb.header');
+
+        // If the header is fixed and has the glass style, add the related class on scrolling to add a background color to the header
+        if (lPage.hasClass('page-header-glass') && lPage.hasClass('page-header-fixed')) {
+            jQuery(window).on('scroll.cb.header', function () {
+                if (jQuery(this).scrollTop() > 60) {
+                    lPage.addClass('page-header-scroll');
+                } else {
+                    lPage.removeClass('page-header-scroll');
+                }
+            }).trigger('scroll.cb.header');
+        }
+    };
+
+    // Main navigation functionality
+    var uiHandleNav = function uiHandleNav() {
+        // Unbind event in case it is already enabled
+        lPage.off('click.cb.menu');
+
+        // When a submenu link is clicked
+        lPage.on('click.cb.menu', '[data-toggle="nav-submenu"]', function (e) {
+            // Get link
+            var link = jQuery(this);
+
+            // Get link's parent
+            var parentLi = link.parent('li');
+
+            if (parentLi.hasClass('open')) {
+                // If submenu is open, close it..
+                parentLi.removeClass('open');
+            } else {
+                // .. else if submenu is closed, close all other (same level) submenus first before open it
+                link.closest('ul').children('li').removeClass('open');
+
+                parentLi.addClass('open');
+            }
+
+            // Remove focus from submenu link
+            if (lHtml.hasClass('no-focus')) {
+                link.blur();
+            }
+
+            return false;
+        });
+    };
+
+    // Material form inputs functionality
+    var uiHandleForms = function uiHandleForms() {
+        jQuery('.form-material.floating > .form-control').each(function () {
+            var input = jQuery(this);
+            var parent = input.parent('.form-material');
+
+            setTimeout(function () {
+                if (input.val()) {
+                    parent.addClass('open');
+                }
+            }, 150);
+
+            input.off('change.cb.inputs').on('change.cb.inputs', function () {
+                if (input.val()) {
+                    parent.addClass('open');
+                } else {
+                    parent.removeClass('open');
+                }
+            });
+        });
+    };
+
+    // Set active color theme functionality
+    var uiHandleTheme = function uiHandleTheme() {
+        var themeEl = jQuery('#css-theme');
+        var cookies = lPage.hasClass('enable-cookies') ? true : false;
+
+        // If cookies are enabled
+        if (cookies) {
+            var themeName = Cookies.get('cbThemeName') || false;
+
+            // Update color theme
+            if (themeName) {
+                uiHandleThemeChange(themeEl, themeName);
+            }
+
+            // Update theme element
+            themeEl = jQuery('#css-theme');
+        }
+
+        // Set the active color theme link as active
+        jQuery('[data-toggle="theme"][data-theme="' + (themeEl.length ? themeEl.attr('href') : 'default') + '"]').parent('li').addClass('active');
+
+        // Unbind event in case it is already enabled
+        lPage.off('click.cb.themes');
+
+        // When a color theme link is clicked
+        lPage.on('click.cb.themes', '[data-toggle="theme"]', function () {
+            var themeName = jQuery(this).data('theme');
+
+            // Set this color theme link as active
+            jQuery('[data-toggle="theme"]').parent('li').removeClass('active');
+
+            jQuery('[data-toggle="theme"][data-theme="' + themeName + '"]').parent('li').addClass('active');
+
+            // Update color theme
+            uiHandleThemeChange(themeEl, themeName);
+
+            // Update theme element
+            themeEl = jQuery('#css-theme');
+
+            // If cookies are enabled, save the new active color theme
+            if (cookies) {
+                Cookies.set('cbThemeName', themeName, { expires: 7 });
+            }
+        });
+    };
+
+    // Helper function for changing a theme
+    var uiHandleThemeChange = function uiHandleThemeChange(themeEl, themeName) {
+        if (themeName === 'default') {
+            if (themeEl.length) {
+                themeEl.remove();
+            }
+        } else {
+            if (themeEl.length) {
+                themeEl.attr('href', themeName);
+            } else {
+                jQuery('#css-main').after('<link rel="stylesheet" id="css-theme" href="' + themeName + '">');
+            }
+        }
+    };
+
+    /*
+     ********************************************************************************************
+     *
+     * API
+     *
+     * Functions which handle requests for blocks and layout
+     *
+     *********************************************************************************************
+     */
+
+    // Layout API
+    var uiApiLayout = function uiApiLayout(mode) {
+        windowW = getWidth();
+
+        // Mode selection
+        switch (mode) {
+            case 'init':
+                // Unbind event in case it is already enabled
+                lPage.off('click.cb.layout');
+
+                // Call layout API on button click
+                lPage.on('click.cb.layout', '[data-toggle="layout"]', function () {
+                    var el = jQuery(this);
+
+                    uiApiLayout(el.data('action'));
+
+                    if (lHtml.hasClass('no-focus')) {
+                        el.blur();
+                    }
+                });
+                break;
+            case 'sidebar_pos_toggle':
+                lPage.toggleClass('sidebar-r');
+                break;
+            case 'sidebar_pos_left':
+                lPage.removeClass('sidebar-r');
+                break;
+            case 'sidebar_pos_right':
+                lPage.addClass('sidebar-r');
+                break;
+            case 'sidebar_toggle':
+                if (windowW > 991) {
+                    lPage.toggleClass('sidebar-o');
+                } else {
+                    lPage.toggleClass('sidebar-o-xs');
+                }
+                break;
+            case 'sidebar_open':
+                if (windowW > 991) {
+                    lPage.addClass('sidebar-o');
+                } else {
+                    lPage.addClass('sidebar-o-xs');
+                }
+                break;
+            case 'sidebar_close':
+                if (windowW > 991) {
+                    lPage.removeClass('sidebar-o');
+                } else {
+                    lPage.removeClass('sidebar-o-xs');
+                }
+                break;
+            case 'sidebar_mini_toggle':
+                if (windowW > 991) {
+                    lPage.toggleClass('sidebar-mini');
+                }
+                break;
+            case 'sidebar_mini_on':
+                if (windowW > 991) {
+                    lPage.addClass('sidebar-mini');
+                }
+                break;
+            case 'sidebar_mini_off':
+                if (windowW > 991) {
+                    lPage.removeClass('sidebar-mini');
+                }
+                break;
+            case 'sidebar_style_inverse_toggle':
+                lPage.toggleClass('sidebar-inverse');
+                break;
+            case 'sidebar_style_inverse_on':
+                lPage.addClass('sidebar-inverse');
+                break;
+            case 'sidebar_style_inverse_off':
+                lPage.removeClass('sidebar-inverse');
+                break;
+            case 'side_overlay_toggle':
+                if (lPage.hasClass('side-overlay-o')) {
+                    uiApiLayout('side_overlay_close');
+                } else {
+                    uiApiLayout('side_overlay_open');
+                }
+                break;
+            case 'side_overlay_open':
+                // When ESCAPE key is hit close the side overlay
+                jQuery(document).on('keydown.cb.sideOverlay', function (e) {
+                    if (e.which === 27) {
+                        e.preventDefault();
+                        uiApiLayout('side_overlay_close');
+                    }
+                });
+
+                lPage.addClass('side-overlay-o');
+                break;
+            case 'side_overlay_close':
+                // Unbind ESCAPE key
+                jQuery(document).off('keydown.cb.sideOverlay');
+
+                lPage.removeClass('side-overlay-o');
+                break;
+            case 'side_overlay_hoverable_toggle':
+                lPage.toggleClass('side-overlay-hover');
+                break;
+            case 'side_overlay_hoverable_on':
+                lPage.addClass('side-overlay-hover');
+                break;
+            case 'side_overlay_hoverable_off':
+                lPage.removeClass('side-overlay-hover');
+                break;
+            case 'header_fixed_toggle':
+                lPage.toggleClass('page-header-fixed');
+                uiHandleHeader();
+                uiHandleMain();
+                break;
+            case 'header_fixed_on':
+                lPage.addClass('page-header-fixed');
+                uiHandleHeader();
+                uiHandleMain();
+                break;
+            case 'header_fixed_off':
+                lPage.removeClass('page-header-fixed');
+                uiHandleHeader();
+                uiHandleMain();
+                break;
+            case 'header_style_modern':
+                lPage.removeClass('page-header-glass page-header-inverse').addClass('page-header-modern');
+                uiHandleHeader();
+                uiHandleMain();
+                break;
+            case 'header_style_classic':
+                lPage.removeClass('page-header-glass page-header-modern');
+                uiHandleHeader();
+                uiHandleMain();
+                break;
+            case 'header_style_glass':
+                lPage.removeClass('page-header-modern').addClass('page-header-glass');
+                uiHandleHeader();
+                uiHandleMain();
+                break;
+            case 'header_style_inverse_toggle':
+                if (!lPage.hasClass('page-header-modern')) {
+                    lPage.toggleClass('page-header-inverse');
+                }
+                break;
+            case 'header_style_inverse_on':
+                if (!lPage.hasClass('page-header-modern')) {
+                    lPage.addClass('page-header-inverse');
+                }
+                break;
+            case 'header_style_inverse_off':
+                if (!lPage.hasClass('page-header-modern')) {
+                    lPage.removeClass('page-header-inverse');
+                }
+                break;
+            case 'header_search_on':
+                lHeaderSearch.addClass('show');
+                lHeaderSearchInput.focus();
+
+                // When ESCAPE key is hit close the search section
+                jQuery(document).on('keydown.cb.header.search', function (e) {
+                    if (e.which === 27) {
+                        e.preventDefault();
+                        console.log('test');
+                        uiApiLayout('header_search_off');
+                    }
+                });
+                break;
+            case 'header_search_off':
+                lHeaderSearch.removeClass('show');
+                lHeaderSearchInput.blur();
+
+                // Unbind ESCAPE key
+                jQuery(document).off('keydown.cb.header.search');
+                break;
+            case 'header_loader_on':
+                lHeaderLoader.addClass('show');
+                break;
+            case 'header_loader_off':
+                lHeaderLoader.removeClass('show');
+                break;
+            case 'side_scroll_toggle':
+                lPage.toggleClass('side-scroll');
+                uiHandleScroll();
+                break;
+            case 'side_scroll_on':
+                lPage.addClass('side-scroll');
+                uiHandleScroll();
+                break;
+            case 'side_scroll_off':
+                lPage.removeClass('side-scroll');
+                uiHandleScroll();
+                break;
+            case 'content_layout_toggle':
+                if (lPage.hasClass('main-content-boxed')) {
+                    uiApiLayout('content_layout_narrow');
+                } else if (lPage.hasClass('main-content-narrow')) {
+                    uiApiLayout('content_layout_full_width');
+                } else {
+                    uiApiLayout('content_layout_boxed');
+                }
+                break;
+            case 'content_layout_boxed':
+                lPage.removeClass('main-content-narrow').addClass('main-content-boxed');
+                break;
+            case 'content_layout_narrow':
+                lPage.removeClass('main-content-boxed').addClass('main-content-narrow');
+                break;
+            case 'content_layout_full_width':
+                lPage.removeClass('main-content-boxed main-content-narrow');
+            default:
+                return false;
+        }
+    };
+
+    // Blocks API
+    var uiApiBlocks = function uiApiBlocks(block, mode) {
+        // Set default icons for fullscreen and content toggle buttons
+        var iconFullscreen = 'si si-size-fullscreen';
+        var iconFullscreenActive = 'si si-size-actual';
+        var iconContent = 'si si-arrow-up';
+        var iconContentActive = 'si si-arrow-down';
+
+        if (mode === 'init') {
+            // Auto add the default toggle icons to fullscreen and content toggle buttons
+            jQuery('[data-toggle="block-option"][data-action="fullscreen_toggle"]').each(function () {
+                var el = jQuery(this);
+
+                el.html('<i class="' + (jQuery(el).closest('.block').hasClass('block-mode-fullscreen') ? iconFullscreenActive : iconFullscreen) + '"></i>');
+            });
+
+            jQuery('[data-toggle="block-option"][data-action="content_toggle"]').each(function () {
+                var el = jQuery(this);
+
+                el.html('<i class="' + (el.closest('.block').hasClass('block-mode-hidden') ? iconContentActive : iconContent) + '"></i>');
+            });
+
+            // Unbind event in case it is already enabled
+            lPage.off('click.cb.blocks');
+
+            // Call blocks API on option button click
+            lPage.on('click.cb.blocks', '[data-toggle="block-option"]', function () {
+                uiApiBlocks(jQuery(this).closest('.block'), jQuery(this).data('action'));
+            });
+        } else {
+            // Get block element
+            var elBlock = block instanceof jQuery ? block : jQuery(block);
+
+            // If element exists, procceed with blocks functionality
+            if (elBlock.length) {
+                // Get block option buttons if exist (need them to update their icons)
+                var btnFullscreen = jQuery('[data-toggle="block-option"][data-action="fullscreen_toggle"]', elBlock);
+                var btnContentToggle = jQuery('[data-toggle="block-option"][data-action="content_toggle"]', elBlock);
+
+                // Mode selection
+                switch (mode) {
+                    case 'fullscreen_toggle':
+                        elBlock.removeClass('block-mode-pinned').toggleClass('block-mode-fullscreen');
+
+                        // Enable/disable scroll lock to block
+                        if (elBlock.hasClass('block-mode-fullscreen')) {
+                            jQuery(elBlock).scrollLock('enable');
+                        } else {
+                            jQuery(elBlock).scrollLock('disable');
+                        }
+
+                        // Update block option icon
+                        if (btnFullscreen.length) {
+                            if (elBlock.hasClass('block-mode-fullscreen')) {
+                                jQuery('i', btnFullscreen).removeClass(iconFullscreen).addClass(iconFullscreenActive);
+                            } else {
+                                jQuery('i', btnFullscreen).removeClass(iconFullscreenActive).addClass(iconFullscreen);
+                            }
+                        }
+                        break;
+                    case 'fullscreen_on':
+                        elBlock.removeClass('block-mode-pinned').addClass('block-mode-fullscreen');
+
+                        // Enable scroll lock to block
+                        jQuery(elBlock).scrollLock('enable');
+
+                        // Update block option icon
+                        if (btnFullscreen.length) {
+                            jQuery('i', btnFullscreen).removeClass(iconFullscreen).addClass(iconFullscreenActive);
+                        }
+                        break;
+                    case 'fullscreen_off':
+                        elBlock.removeClass('block-mode-fullscreen');
+
+                        // Disable scroll lock to block
+                        jQuery(elBlock).scrollLock('disable');
+
+                        // Update block option icon
+                        if (btnFullscreen.length) {
+                            jQuery('i', btnFullscreen).removeClass(iconFullscreenActive).addClass(iconFullscreen);
+                        }
+                        break;
+                    case 'content_toggle':
+                        elBlock.toggleClass('block-mode-hidden');
+
+                        // Update block option icon
+                        if (btnContentToggle.length) {
+                            if (elBlock.hasClass('block-mode-hidden')) {
+                                jQuery('i', btnContentToggle).removeClass(iconContent).addClass(iconContentActive);
+                            } else {
+                                jQuery('i', btnContentToggle).removeClass(iconContentActive).addClass(iconContent);
+                            }
+                        }
+                        break;
+                    case 'content_hide':
+                        elBlock.addClass('block-mode-hidden');
+
+                        // Update block option icon
+                        if (btnContentToggle.length) {
+                            jQuery('i', btnContentToggle).removeClass(iconContent).addClass(iconContentActive);
+                        }
+                        break;
+                    case 'content_show':
+                        elBlock.removeClass('block-mode-hidden');
+
+                        // Update block option icon
+                        if (btnContentToggle.length) {
+                            jQuery('i', btnContentToggle).removeClass(iconContentActive).addClass(iconContent);
+                        }
+                        break;
+                    case 'state_toggle':
+                        elBlock.toggleClass('block-mode-loading');
+
+                        // Return block to normal state if the demostration mode is on in the refresh option button - data-action-mode="demo"
+                        if (jQuery('[data-toggle="block-option"][data-action="state_toggle"][data-action-mode="demo"]', elBlock).length) {
+                            setTimeout(function () {
+                                elBlock.removeClass('block-mode-loading');
+                            }, 2000);
+                        }
+                        break;
+                    case 'state_loading':
+                        elBlock.addClass('block-mode-loading');
+                        break;
+                    case 'state_normal':
+                        elBlock.removeClass('block-mode-loading');
+                        break;
+                    case 'pinned_toggle':
+                        elBlock.removeClass('block-mode-fullscreen').toggleClass('block-mode-pinned');
+                        break;
+                    case 'pinned_on':
+                        elBlock.removeClass('block-mode-fullscreen').addClass('block-mode-pinned');
+                        break;
+                    case 'pinned_off':
+                        elBlock.removeClass('block-mode-pinned');
+                        break;
+                    case 'close':
+                        elBlock.hide();
+                        break;
+                    case 'open':
+                        elBlock.show();
+                        break;
+                    default:
+                        return false;
+                }
+            }
+        }
+    };
+
+    /*
+     ********************************************************************************************
+     *
+     * PRIVATE HELPERS
+     *
+     * Private helper functions
+     *
+     *********************************************************************************************
+     */
+
+    // Get window width
+    var getWidth = function getWidth() {
+        return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    };
+
+    /*
+     ********************************************************************************************
+     *
+     * CORE HELPERS
+     *
+     * Third party plugin inits or various custom user interface helpers to extend functionality
+     * They are called by default and can be used right away
+     *
+     *********************************************************************************************
+     */
+
+    // Toggle class
+    var uiHelperCoreToggleClass = function uiHelperCoreToggleClass() {
+        jQuery('[data-toggle="class-toggle"]:not(.js-class-toggle-enabled)').on('click.cb.helpers.core', function () {
+            var el = jQuery(this);
+
+            // Add .js-class-toggle-enabled class to tag it as activated
+            el.addClass('js-class-toggle-enabled');
+
+            jQuery(el.data('target').toString()).toggleClass(el.data('class').toString());
+
+            if (lHtml.hasClass('no-focus')) {
+                el.blur();
+            }
+        });
+    };
+
+    // Scroll to element animation
+    var uiHelperCoreScrollTo = function uiHelperCoreScrollTo() {
+        jQuery('[data-toggle="scroll-to"]:not(.js-scroll-to-enabled)').on('click.cb.helpers.core', function (e) {
+            e.stopPropagation();
+
+            // Set variables
+            var el = jQuery(this);
+            var elTarget = el.data('target') || el.attr('href');
+            var elSpeed = el.data('speed') || 1000;
+            var headerHeight = lHeader.length && lPage.hasClass('page-header-fixed') ? lHeader.outerHeight() : 0;
+
+            // Add .js-scroll-to-enabled class to tag it as activated
+            el.addClass('js-scroll-to-enabled');
+
+            jQuery('html, body').animate({
+                scrollTop: jQuery(elTarget).offset().top - headerHeight
+            }, elSpeed);
+        });
+    };
+
+    // Add the correct copyright year
+    var uiHelperCoreYearCopy = function uiHelperCoreYearCopy() {
+        var yearCopy = jQuery('.js-year-copy');
+
+        if (yearCopy.length > 0) {
+            var date = new Date();
+            var curYear = date.getFullYear();
+            var baseYear = yearCopy.html().length > 0 ? yearCopy.html() : curYear;
+
+            if (parseInt(baseYear) >= curYear) {
+                yearCopy.html(curYear);
+            } else {
+                yearCopy.html(baseYear + '-' + curYear.toString().substr(2, 2));
+            }
+        }
+    };
+
+    // Bootstrap tooltip, for more examples you can check out https://getbootstrap.com/docs/4.0/components/tooltips/
+    var uiHelperCoreTooltip = function uiHelperCoreTooltip() {
+        jQuery('[data-toggle="tooltip"]:not(.js-tooltip-enabled)').add('.js-tooltip:not(.js-tooltip-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-tooltip-enabled class to tag it as activated
+            el.addClass('js-tooltip-enabled');
+
+            // Init
+            el.tooltip({
+                container: el.data('container') || 'body',
+                animation: el.data('animation') || false
+            });
+        });
+    };
+
+    // Bootstrap popover, for more examples you can check out https://getbootstrap.com/docs/4.0/components/popovers/
+    var uiHelperCorePopover = function uiHelperCorePopover() {
+        jQuery('[data-toggle="popover"]:not(.js-popover-enabled)').add('.js-popover:not(.js-popover-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-popover-enabled class to tag it as activated
+            el.addClass('js-popover-enabled');
+
+            // Init
+            el.popover({
+                container: el.data('container') || 'body',
+                animation: el.data('animation') || false,
+                trigger: el.data('trigger') || 'hover focus'
+            });
+        });
+    };
+
+    // Bootstrap tab, for more examples you can check out http://getbootstrap.com/docs/4.0/components/navs/#tabs
+    var uiHelperCoreTab = function uiHelperCoreTab() {
+        jQuery('[data-toggle="tabs"]:not(.js-tabs-enabled)').add('.js-tabs:not(.js-tabs-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-tabs-enabled class to tag it as activated
+            el.addClass('js-tabs-enabled');
+
+            // Init
+            el.find('a').on('click.cb.helpers.core', function (e) {
+                e.preventDefault();
+                jQuery(this).tab('show');
+            });
+        });
+    };
+
+    // jQuery Appear, for more examples you can check out https://github.com/bas2k/jquery.appear
+    var uiHelperCoreAppear = function uiHelperCoreAppear() {
+        // Add a specific class on elements (when they become visible on scrolling)
+        jQuery('[data-toggle="appear"]:not(.js-appear-enabled)').each(function () {
+            windowW = getWidth();
+
+            var el = jQuery(this);
+            var elCssClass = el.data('class') || 'animated fadeIn';
+            var elOffset = el.data('offset') || 0;
+            var elTimeout = lHtml.hasClass('ie9') || windowW < 992 ? 0 : el.data('timeout') ? el.data('timeout') : 0;
+
+            // Add .js-appear-enabled class to tag it as activated
+            el.addClass('js-appear-enabled');
+
+            // Init
+            el.appear(function () {
+                setTimeout(function () {
+                    el.removeClass('invisible').addClass(elCssClass);
+                }, elTimeout);
+            }, { accY: elOffset });
+        });
+    };
+
+    // jQuery Appear + jQuery countTo, for more examples you can check out https://github.com/bas2k/jquery.appear and https://github.com/mhuggins/jquery-countTo
+    var uiHelperCoreAppearCountTo = function uiHelperCoreAppearCountTo() {
+        // Init counter functionality
+        jQuery('[data-toggle="countTo"]:not(.js-count-to-enabled)').each(function () {
+            var el = jQuery(this);
+            var elAfter = el.data('after');
+            var elBefore = el.data('before');
+
+            // Add .js-count-to-enabled class to tag it as activated
+            el.addClass('js-count-to-enabled');
+
+            // Init
+            el.appear(function () {
+                el.countTo({
+                    speed: el.data('speed') || 1500,
+                    refreshInterval: el.data('refresh-interval') || 15,
+                    onComplete: function onComplete() {
+                        if (elAfter) {
+                            el.html(el.html() + elAfter);
+                        } else if (elBefore) {
+                            el.html(elBefore + el.html());
+                        }
+                    }
+                });
+            });
+        });
+    };
+
+    // jQuery SlimScroll, for more examples you can check out http://rocha.la/jQuery-slimScroll
+    var uiHelperCoreSlimscroll = function uiHelperCoreSlimscroll() {
+        // Init slimScroll functionality
+        jQuery('[data-toggle="slimscroll"]:not(.js-slimscroll-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-slimscroll-enabled class to tag it as activated
+            el.addClass('js-slimscroll-enabled');
+
+            // Init
+            el.slimScroll({
+                height: el.data('height') || '200px',
+                size: el.data('size') || '5px',
+                position: el.data('position') || 'right',
+                color: el.data('color') || '#000',
+                opacity: el.data('opacity') || '.25',
+                distance: el.data('distance') || '0',
+                alwaysVisible: el.data('always-visible') ? true : false,
+                railVisible: el.data('rail-visible') ? true : false,
+                railColor: el.data('rail-color') || '#999',
+                railOpacity: el.data('rail-opacity') || .3
+            });
+        });
+    };
+
+    // Manage page loading screen functionality
+    var uiHelperCorePageLoader = function uiHelperCorePageLoader(mode, colorClass) {
+        var lpageLoader = jQuery('#page-loader');
+
+        if (mode === 'show') {
+            if (lpageLoader.length) {
+                if (colorClass) {
+                    lpageLoader.removeClass().addClass(colorClass);
+                }
+
+                lpageLoader.addClass('show');
+            } else {
+                if (colorClass) {
+                    lBody.prepend('<div id="page-loader" class="show ' + colorClass + '"></div>');
+                } else {
+                    lBody.prepend('<div id="page-loader" class="show"></div>');
+                }
+            }
+        } else if (mode === 'hide') {
+            if (lpageLoader.length) {
+                lpageLoader.removeClass('show');
+            }
+        }
+
+        return false;
+    };
+
+    // Ripple effect fuctionality
+    var uiHelperCoreRipple = function uiHelperCoreRipple() {
+        jQuery('[data-toggle="click-ripple"]:not(.js-click-ripple-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-click-ripple-enabled class to tag it as activated
+            el.addClass('js-click-ripple-enabled');
+
+            // Add required properties to the element
+            el.css({
+                'overflow': 'hidden',
+                'position': 'relative',
+                'z-index': 1
+            });
+
+            // On element click
+            el.on('click.cb.helpers.core', function (e) {
+                var cssClass = 'click-ripple',
+                    ripple,
+                    d,
+                    x,
+                    y;
+
+                // If the ripple element doesn't exist in this element, add it..
+                if (el.children('.' + cssClass).length === 0) {
+                    el.prepend('<span class="' + cssClass + '"></span>');
+                } else {
+                    // ..else remove .animate class from ripple element
+                    el.children('.' + cssClass).removeClass('animate');
+                }
+
+                // Get the ripple element
+                var ripple = el.children('.' + cssClass);
+
+                // If the ripple element doesn't have dimensions set them accordingly
+                if (!ripple.height() && !ripple.width()) {
+                    d = Math.max(el.outerWidth(), el.outerHeight());
+                    ripple.css({ height: d, width: d });
+                }
+
+                // Get coordinates for our ripple element
+                x = e.pageX - el.offset().left - ripple.width() / 2;
+                y = e.pageY - el.offset().top - ripple.height() / 2;
+
+                // Position the ripple element and add the class .animate to it
+                ripple.css({ top: y + 'px', left: x + 'px' }).addClass('animate');
+            });
+        });
+    };
+
+    /*
+     ********************************************************************************************
+     *
+     * UI HELPERS (ON DEMAND)
+     *
+     * Third party plugin inits or various custom user interface helpers to extend functionality
+     * They need to be called in a page to be initialized. They are included here to be easy to
+     * init them on demand on multiple pages (usually repeated init code in common components)
+     *
+     ********************************************************************************************
+     */
+
+    /*
+     * Print Page functionality
+     *
+     * Scms.helper('print-page');
+     *
+     */
+    var uiHelperPrint = function uiHelperPrint() {
+        // Store all #page-container classes
+        var pageCls = lPage.prop('class');
+
+        // Remove all classes from #page-container
+        lPage.prop('class', '');
+
+        // Print the page
+        window.print();
+
+        // Restore all #page-container classes
+        lPage.prop('class', pageCls);
+    };
+
+    /*
+     * Custom Table functionality such as section toggling or checkable rows
+     *
+     * Scms.helper('table-tools');
+     *
+     */
+
+    // Table sections functionality
+    var uiHelperTableToolsSections = function uiHelperTableToolsSections() {
+        // For each table
+        jQuery('.js-table-sections:not(.js-table-sections-enabled)').each(function () {
+            var table = jQuery(this);
+
+            // Add .js-table-sections-enabled class to tag it as activated
+            table.addClass('js-table-sections-enabled');
+
+            // When a row is clicked in tbody.js-table-sections-header
+            jQuery('.js-table-sections-header > tr', table).on('click.cb.helpers', function (e) {
+                if (e.target.type !== 'checkbox' && e.target.type !== 'button' && e.target.tagName.toLowerCase() !== 'a' && !jQuery(e.target).parent('label').length) {
+                    var row = jQuery(this);
+                    var tbody = row.parent('tbody');
+
+                    if (!tbody.hasClass('show')) {
+                        jQuery('tbody', table).removeClass('show table-active');
+                    }
+
+                    tbody.toggleClass('show table-active');
+                }
+            });
+        });
+    };
+
+    // Checkable table functionality
+    var uiHelperTableToolsCheckable = function uiHelperTableToolsCheckable() {
+        // For each table
+        jQuery('.js-table-checkable:not(.js-table-checkable-enabled)').each(function () {
+            var table = jQuery(this);
+
+            // Add .js-table-checkable-enabled class to tag it as activated
+            table.addClass('js-table-checkable-enabled');
+
+            // When a checkbox is clicked in thead
+            jQuery('thead input:checkbox', table).on('click.cb.helpers', function () {
+                var checkedStatus = jQuery(this).prop('checked');
+
+                // Check or uncheck all checkboxes in tbody
+                jQuery('tbody input:checkbox', table).each(function () {
+                    var checkbox = jQuery(this);
+
+                    checkbox.prop('checked', checkedStatus);
+                    uiHelperTableToolscheckRow(checkbox, checkedStatus);
+                });
+            });
+
+            // When a checkbox is clicked in tbody
+            jQuery('tbody input:checkbox', table).on('click.cb.helpers', function () {
+                var checkbox = jQuery(this);
+
+                uiHelperTableToolscheckRow(checkbox, checkbox.prop('checked'));
+            });
+
+            // When a row is clicked in tbody
+            jQuery('tbody > tr', table).on('click.cb.helpers', function (e) {
+                if (e.target.type !== 'checkbox' && e.target.type !== 'button' && e.target.tagName.toLowerCase() !== 'a' && !jQuery(e.target).parent('label').length) {
+                    var checkbox = jQuery('input:checkbox', this);
+                    var checkedStatus = checkbox.prop('checked');
+
+                    checkbox.prop('checked', !checkedStatus);
+                    uiHelperTableToolscheckRow(checkbox, !checkedStatus);
+                }
+            });
+        });
+    };
+
+    // Checkable table functionality helper - Checks or unchecks table row
+    var uiHelperTableToolscheckRow = function uiHelperTableToolscheckRow(checkbox, checkedStatus) {
+        if (checkedStatus) {
+            checkbox.closest('tr').addClass('table-active');
+        } else {
+            checkbox.closest('tr').removeClass('table-active');
+        }
+    };
+
+    /*
+     * Content filtering functionality
+     *
+     * Scms.helper('content-filter');
+     *
+     */
+    var uiHelperContentFilter = function uiHelperContentFilter() {
+        // Content Filtering init
+        jQuery('.js-filter:not(.js-filter-enabled)').each(function () {
+            var el = jQuery(this);
+            var filterNav = jQuery('.nav-pills', el);
+            var filterLinks = jQuery('a[data-category-link]', el);
+            var filterItems = jQuery('[data-category]', el);
+            var filterSpeed = el.data('speed') || 200;
+
+            // Add .js-filter-enabled class to tag it as activated
+            el.addClass('js-filter-enabled');
+
+            // If navigation pills are used, make them responsive (stacked on smaller screens)
+            if (filterNav.length) {
+                var resizeTimeout, windowW;
+
+                jQuery(window).on('resize.cb.helpers', function () {
+                    clearTimeout(resizeTimeout);
+
+                    resizeTimeout = setTimeout(function () {
+                        windowW = getWidth();
+
+                        if (windowW < 768) {
+                            filterNav.addClass('flex-column');
+                        } else {
+                            filterNav.removeClass('flex-column');
+                        }
+                    }, 150);
+                }).trigger('resize.cb.helpers');
+            }
+
+            // Add number of items to the links if enabled by adding data-numbers="true" to the main element
+            if (el.data('numbers')) {
+                filterLinks.each(function () {
+                    var filterLink = jQuery(this);
+                    var filterCat = filterLink.data('category-link');
+
+                    // Add number of items to this category link
+                    if (filterCat === 'all') {
+                        filterLink.append(' (' + filterItems.length + ')');
+                    } else {
+                        filterLink.append(' (' + filterItems.filter('[data-category="' + filterCat + '"]').length + ')');
+                    }
+                });
+            }
+
+            // When a filter link is clicked
+            filterLinks.on('click.cb.helpers', function () {
+                var filterLink = jQuery(this);
+                var filterCat;
+
+                // Procceed only if the user clicked on an inactive category
+                if (!filterLink.hasClass('active')) {
+                    // Remove active class from all filter links
+                    filterLinks.removeClass('active');
+
+                    // Add the active class to the clicked link
+                    filterLink.addClass('active');
+
+                    // Get its data-category value
+                    filterCat = filterLink.data('category-link');
+
+                    // If the value is 'all' hide current visible items and show them all together, else hide them all and show only from the category we need
+                    if (filterCat === 'all') {
+                        if (filterItems.filter(':visible').length) {
+                            filterItems.filter(':visible').fadeOut(filterSpeed, function () {
+                                filterItems.fadeIn(filterSpeed);
+                            });
+                        } else {
+                            filterItems.fadeIn(filterSpeed);
+                        }
+                    } else {
+                        if (filterItems.filter(':visible').length) {
+                            filterItems.filter(':visible').fadeOut(filterSpeed, function () {
+                                filterItems.filter('[data-category="' + filterCat + '"]').fadeIn(filterSpeed);
+                            });
+                        } else {
+                            filterItems.filter('[data-category="' + filterCat + '"]').fadeIn(filterSpeed);
+                        }
+                    }
+                }
+
+                return false;
+            });
+        });
+    };
+
+    /*
+     ********************************************************************************************
+     *
+     * All the following helpers require each plugin's resources (JS, CSS) to be included in order to work
+     *
+     ********************************************************************************************
+     */
+
+    /*
+     * Magnific Popup functionality, for more examples you can check out http://dimsemenov.com/plugins/magnific-popup/
+     *
+     * Scms.helper('magnific-popup');
+     *
+     */
+    var uiHelperMagnific = function uiHelperMagnific() {
+        // Gallery init
+        jQuery('.js-gallery:not(.js-gallery-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-gallery-enabled class to tag it as activated
+            el.addClass('js-gallery-enabled');
+
+            // Init
+            el.magnificPopup({
+                delegate: 'a.img-lightbox',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+    };
+
+    /*
+     * CKEditor init, for more examples you can check out http://ckeditor.com/
+     *
+     * Scms.helper('ckeditor');
+     *
+     */
+    var uiHelperCkeditor = function uiHelperCkeditor() {
+        // Init inline text editor
+        if (jQuery('#js-ckeditor-inline:not(.js-ckeditor-inline-enabled)').length) {
+            jQuery('#js-ckeditor-inline').attr('contenteditable', 'true');
+            CKEDITOR.inline('js-ckeditor-inline');
+
+            // Add .js-ckeditor-inline-enabled class to tag it as activated
+            jQuery('#js-ckeditor-inline').addClass('js-ckeditor-inline-enabled');
+        }
+
+        // Init full text editor
+        if (jQuery('#js-ckeditor:not(.js-ckeditor-enabled)').length) {
+            CKEDITOR.replace('js-ckeditor');
+
+            // Add .js-ckeditor-enabled class to tag it as activated
+            jQuery('#js-ckeditor').addClass('js-ckeditor-enabled');
+        }
+    };
+
+    /*
+     * SimpleMDE init, for more examples you can check out https://github.com/NextStepWebs/simplemde-markdown-editor
+     *
+     * Scms.helper('simplemde');
+     *
+     */
+    var uiHelperSimpleMDE = function uiHelperSimpleMDE() {
+        // Init markdown editor (with .js-simplemde class)
+        jQuery('.js-simplemde:not(.js-simplemde-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-slider-enabled class to tag it as activated
+            el.addClass('js-simplemde-enabled');
+
+            // Init editor
+            new SimpleMDE({ element: el[0] });
+        });
+    };
+
+    /*
+     * Slick init, for more examples you can check out http://kenwheeler.github.io/slick/
+     *
+     * Scms.helper('slick');
+     *
+     */
+    var uiHelperSlick = function uiHelperSlick() {
+        // Get each slider element (with .js-slider class)
+        jQuery('.js-slider:not(.js-slider-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-slider-enabled class to tag it as activated
+            el.addClass('js-slider-enabled');
+
+            // Init slick slider
+            el.slick({
+                arrows: el.data('arrows') || false,
+                dots: el.data('dots') || false,
+                slidesToShow: el.data('slides-to-show') || 1,
+                centerMode: el.data('center-mode') || false,
+                autoplay: el.data('autoplay') || false,
+                autoplaySpeed: el.data('autoplay-speed') || 3000
+            });
+        });
+    };
+
+    /*
+     * Bootstrap Datepicker init, for more examples you can check out https://github.com/eternicode/bootstrap-datepicker
+     *
+     * Scms.helper('datepicker');
+     *
+     */
+    var uiHelperDatepicker = function uiHelperDatepicker() {
+        // Init datepicker (with .js-datepicker and .input-daterange class)
+        jQuery('.js-datepicker:not(.js-datepicker-enabled)').add('.input-daterange:not(.js-datepicker-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-datepicker-enabled class to tag it as activated
+            el.addClass('js-datepicker-enabled');
+
+            // Init
+            el.datepicker({
+                weekStart: el.data('week-start') || 0,
+                autoclose: el.data('autoclose') || false,
+                todayHighlight: el.data('today-highlight') || false,
+                orientation: 'bottom' // Position issue when using BS4, set it to bottom until officially supported
+            });
+        });
+    };
+
+    /*
+     * Bootstrap Colorpicker init, for more examples you can check out https://github.com/itsjavi/bootstrap-colorpicker/
+     *
+     * Scms.helper('colorpicker');
+     *
+     */
+    var uiHelperColorpicker = function uiHelperColorpicker() {
+        // Get each colorpicker element (with .js-colorpicker class)
+        jQuery('.js-colorpicker:not(.js-colorpicker-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-enabled class to tag it as activated
+            el.addClass('js-colorpicker-enabled');
+
+            // Init colorpicker
+            el.colorpicker();
+        });
+    };
+
+    /*
+     * Masked Inputs, for more examples you can check out http://digitalbush.com/projects/masked-input-plugin/
+     *
+     * Scms.helper('masked-inputs');
+     *
+     */
+    var uiHelperMaskedInputs = function uiHelperMaskedInputs() {
+        // Init Masked Inputs
+        // a - Represents an alpha character (A-Z,a-z)
+        // 9 - Represents a numeric character (0-9)
+        // * - Represents an alphanumeric character (A-Z,a-z,0-9)
+        jQuery('.js-masked-date:not(.js-masked-enabled)').mask('99/99/9999');
+        jQuery('.js-masked-date-dash:not(.js-masked-enabled)').mask('99-99-9999');
+        jQuery('.js-masked-phone:not(.js-masked-enabled)').mask('(999) 999-9999');
+        jQuery('.js-masked-phone-ext:not(.js-masked-enabled)').mask('(999) 999-9999? x99999');
+        jQuery('.js-masked-taxid:not(.js-masked-enabled)').mask('99-9999999');
+        jQuery('.js-masked-ssn:not(.js-masked-enabled)').mask('999-99-9999');
+        jQuery('.js-masked-pkey:not(.js-masked-enabled)').mask('a*-999-a999');
+        jQuery('.js-masked-time:not(.js-masked-enabled)').mask('99:99');
+
+        jQuery('.js-masked-date').add('.js-masked-date-dash').add('.js-masked-phone').add('.js-masked-phone-ext').add('.js-masked-taxid').add('.js-masked-ssn').add('.js-masked-pkey').add('.js-masked-time').addClass('js-masked-enabled');
+    };
+
+    /*
+     * Tags Inputs, for more examples you can check out https://github.com/xoxco/jQuery-Tags-Input
+     *
+     * Scms.helper('tags-inputs');
+     *
+     */
+    var uiHelperTagsInputs = function uiHelperTagsInputs() {
+        // Init Tags Inputs (with .js-tags-input class)
+        jQuery('.js-tags-input:not(.js-tags-input-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-tags-input-enabled class to tag it as activated
+            el.addClass('js-tags-input-enabled');
+
+            // Init
+            el.tagsInput({
+                height: el.data('height') || false,
+                width: el.data('width') || '100%',
+                defaultText: el.data('default-text') || 'Add tag',
+                removeWithBackspace: el.data('remove-with-backspace') || true,
+                delimiter: [',']
+            });
+        });
+    };
+
+    /*
+     * Select2, for more examples you can check out https://github.com/select2/select2
+     *
+     * Scms.helper('select2');
+     *
+     */
+    var uiHelperSelect2 = function uiHelperSelect2() {
+        // Init Select2 (with .js-select2 class)
+        jQuery('.js-select2:not(.js-select2-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-select2-enabled class to tag it as activated
+            el.addClass('js-select2-enabled');
+
+            // Init
+            el.select2();
+        });
+    };
+
+    /*
+     * Highlight.js, for more examples you can check out https://highlightjs.org/usage/
+     *
+     * Scms.helper('highlightjs');
+     *
+     */
+    var uiHelperHighlightjs = function uiHelperHighlightjs() {
+        // Init Highlight.js
+        if (!hljs.isHighlighted) {
+            hljs.initHighlighting();
+        }
+    };
+
+    /*
+     * Bootstrap Notify, for more examples you can check out http://bootstrap-growl.remabledesigns.com/
+     *
+     * Scms.helper('notify');
+     *
+     */
+    var uiHelperNotify = function uiHelperNotify() {
+        // Init notifications (with .js-notify class)
+        jQuery('.js-notify:not(.js-notify-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-notify-enabled class to tag it as activated
+            el.addClass('js-notify-enabled');
+
+            // Init on click
+            el.on('click.cb.helpers', function () {
+                var growl = jQuery(this);
+
+                // Create notification
+                jQuery.notify({
+                    icon: growl.data('icon') || '',
+                    message: growl.data('message'),
+                    url: growl.data('url') || ''
+                }, {
+                    element: 'body',
+                    type: growl.data('type') || 'info',
+                    allow_dismiss: true,
+                    newest_on_top: true,
+                    showProgressbar: false,
+                    placement: {
+                        from: growl.data('from') || 'top',
+                        align: growl.data('align') || 'right'
+                    },
+                    offset: 20,
+                    spacing: 10,
+                    z_index: 1033,
+                    delay: 5000,
+                    timer: 1000,
+                    animate: {
+                        enter: 'animated fadeIn',
+                        exit: 'animated fadeOutDown'
+                    }
+                });
+            });
+        });
+    };
+
+    /*
+     * Draggable items with jQuery, for more examples you can check out https://jqueryui.com/sortable/
+     *
+     * Scms.helper('draggable-items');
+     *
+     */
+    var uiHelperDraggableItems = function uiHelperDraggableItems() {
+        // Init draggable items functionality (with .js-draggable-items class)
+        jQuery('.js-draggable-items:not(.js-draggable-items-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-draggable-items-enabled class to tag it as activated
+            el.addClass('js-draggable-items-enabled');
+
+            // Init
+            el.children('.draggable-column').sortable({
+                connectWith: '.draggable-column',
+                items: '.draggable-item',
+                dropOnEmpty: true,
+                opacity: .75,
+                handle: '.draggable-handler',
+                placeholder: 'draggable-placeholder',
+                tolerance: 'pointer',
+                start: function start(e, ui) {
+                    ui.placeholder.css({
+                        'height': ui.item.outerHeight(),
+                        'margin-bottom': ui.item.css('margin-bottom')
+                    });
+                }
+            });
+        });
+    };
+
+    /*
+     * Easy Pie Chart, for more examples you can check out http://rendro.github.io/easy-pie-chart/
+     *
+     * Scms.helper('easy-pie-chart');
+     *
+     */
+    var uiHelperEasyPieChart = function uiHelperEasyPieChart() {
+        // Init Easy Pie Charts (with .js-pie-chart class)
+        jQuery('.js-pie-chart:not(.js-pie-chart-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-pie-chart-enabled class to tag it as activated
+            el.addClass('js-pie-chart-enabled');
+
+            // Init
+            el.easyPieChart({
+                barColor: el.data('bar-color') || '#777777',
+                trackColor: el.data('track-color') || '#eeeeee',
+                lineWidth: el.data('line-width') || 3,
+                size: el.data('size') || '80',
+                animate: el.data('animate') || 750,
+                scaleColor: el.data('scale-color') || false
+            });
+        });
+    };
+
+    /*
+     * Bootstrap Maxlength, for more examples you can check out https://github.com/mimo84/bootstrap-maxlength
+     *
+     * Scms.helper('maxlength');
+     *
+     */
+    var uiHelperMaxlength = function uiHelperMaxlength() {
+        // Init Bootstrap Maxlength (with .js-maxlength class)
+        jQuery('.js-maxlength:not(.js-maxlength-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-maxlength-enabled class to tag it as activated
+            el.addClass('js-maxlength-enabled');
+
+            // Init
+            el.maxlength({
+                alwaysShow: el.data('always-show') ? true : false,
+                threshold: el.data('threshold') || 10,
+                warningClass: el.data('warning-class') || 'badge badge-warning',
+                limitReachedClass: el.data('limit-reached-class') || 'badge badge-danger',
+                placement: el.data('placement') || 'bottom',
+                preText: el.data('pre-text') || '',
+                separator: el.data('separator') || '/',
+                postText: el.data('post-text') || ''
+            });
+        });
+    };
+
+    /*
+     * Ion Range Slider, for more examples you can check out https://github.com/IonDen/ion.rangeSlider
+     *
+     * Scms.helper('rangeslider');
+     *
+     */
+    var uiHelperRangeslider = function uiHelperRangeslider() {
+        // Init Ion Range Slider (with .js-rangeslider class)
+        jQuery('.js-rangeslider:not(.js-rangeslider-enabled)').each(function () {
+            var el = jQuery(this);
+
+            // Add .js-rangeslider-enabled class to tag it as activated
+            el.addClass('js-rangeslider-enabled');
+
+            // Init
+            el.ionRangeSlider({
+                input_values_separator: ';'
+            });
+        });
+    };
+
+    return {
+        init: function init() {
+            // LAYOUT VARIABLES
+            uiInit();
+
+            // BASE UI
+            uiHandleScroll('init');
+            uiHandleMain();
+            uiHandleHeader();
+            uiHandleNav();
+            uiHandleForms();
+            uiHandleTheme();
+
+            // API
+            uiApiLayout('init');
+            uiApiBlocks(false, 'init');
+
+            // CORE HELPERS
+            uiHelperCoreToggleClass();
+            uiHelperCoreScrollTo();
+            uiHelperCoreYearCopy();
+            uiHelperCoreTooltip();
+            uiHelperCorePopover();
+            uiHelperCoreTab();
+            uiHelperCoreAppear();
+            uiHelperCoreAppearCountTo();
+            uiHelperCoreSlimscroll();
+            uiHelperCorePageLoader('hide');
+            uiHelperCoreRipple();
+        },
+        layout: function layout(mode) {
+            uiApiLayout(mode);
+        },
+        blocks: function blocks(block, mode) {
+            uiApiBlocks(block, mode);
+        },
+        loader: function loader(mode, colorClass) {
+            uiHelperCorePageLoader(mode, colorClass);
+        },
+        helper: function helper(_helper) {
+            switch (_helper) {
+                case 'core-fn-uiInit':
+                    uiInit();
+                    break;
+                case 'core-fn-uiHandleScrollInit':
+                    uiHandleScroll('init');
+                    break;
+                case 'core-fn-uiHandleScroll':
+                    uiHandleScroll();
+                    break;
+                case 'core-fn-uiHandleMain':
+                    uiHandleMain();
+                    break;
+                case 'core-fn-uiHandleHeader':
+                    uiHandleHeader();
+                    break;
+                case 'core-fn-uiHandleNav':
+                    uiHandleNav();
+                    break;
+                case 'core-fn-uiHandleForms':
+                    uiHandleForms();
+                    break;
+                case 'core-fn-uiHandleTheme':
+                    uiHandleTheme();
+                    break;
+                case 'core-fn-uiApiLayout':
+                    uiApiLayout('init');
+                    break;
+                case 'core-fn-uiApiBlocks':
+                    uiApiBlocks(false, 'init');
+                    break;
+                case 'core-tooltip':
+                    uiHelperCoreTooltip();
+                    break;
+                case 'core-popover':
+                    uiHelperCorePopover();
+                    break;
+                case 'core-tab':
+                    uiHelperCoreTab();
+                    break;
+                case 'core-scrollTo':
+                    uiHelperCoreScrollTo();
+                    break;
+                case 'core-toggle-class':
+                    uiHelperCoreToggleClass();
+                    break;
+                case 'core-year-copy':
+                    uiHelperCoreYearCopy();
+                    break;
+                case 'core-appear':
+                    uiHelperCoreAppear();
+                    break;
+                case 'core-appear-countTo':
+                    uiHelperCoreAppearCountTo();
+                    break;
+                case 'core-slimscroll':
+                    uiHelperCoreSlimscroll();
+                    break;
+                case 'core-ripple':
+                    uiHelperCoreRipple();
+                    break;
+                case 'core-page-loader':
+                    uiHelperCorePageLoader('hide');
+                    break;
+                case 'print-page':
+                    uiHelperPrint();
+                    break;
+                case 'table-tools':
+                    uiHelperTableToolsSections();
+                    uiHelperTableToolsCheckable();
+                    break;
+                case 'content-filter':
+                    uiHelperContentFilter();
+                    break;
+                case 'slimscroll':
+                    uiHelperSlimscroll();
+                    break;
+                case 'magnific-popup':
+                    uiHelperMagnific();
+                    break;
+                case 'ckeditor':
+                    uiHelperCkeditor();
+                    break;
+                case 'simplemde':
+                    uiHelperSimpleMDE();
+                    break;
+                case 'slick':
+                    uiHelperSlick();
+                    break;
+                case 'datepicker':
+                    uiHelperDatepicker();
+                    break;
+                case 'colorpicker':
+                    uiHelperColorpicker();
+                    break;
+                case 'tags-inputs':
+                    uiHelperTagsInputs();
+                    break;
+                case 'masked-inputs':
+                    uiHelperMaskedInputs();
+                    break;
+                case 'select2':
+                    uiHelperSelect2();
+                    break;
+                case 'highlightjs':
+                    uiHelperHighlightjs();
+                    break;
+                case 'notify':
+                    uiHelperNotify();
+                    break;
+                case 'draggable-items':
+                    uiHelperDraggableItems();
+                    break;
+                case 'easy-pie-chart':
+                    uiHelperEasyPieChart();
+                    break;
+                case 'maxlength':
+                    uiHelperMaxlength();
+                    break;
+                case 'rangeslider':
+                    uiHelperRangeslider();
+                    break;
+                default:
+                    return false;
+            }
+        },
+        helpers: function helpers(_helpers) {
+            if (_helpers instanceof Array) {
+                for (var index in _helpers) {
+                    Scms.helper(_helpers[index]);
+                }
+            } else {
+                Scms.helper(_helpers);
+            }
+        }
+    };
+}();
+
+// Initialize when page loads
+jQuery(function () {
+    if (typeof angular === 'undefined') {
+        Scms.init();
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 58 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -42,9 +42,12 @@
   display: block;
 }
 
+.blog-body{
+  min-width: 100%;
+}
 
 @media (min-width: 768px){
-  .card-body{
+  #blog .card-body{
     min-height : 234px;
   }
 }
