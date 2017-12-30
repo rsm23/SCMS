@@ -8920,6 +8920,10 @@ a.text-dark:focus, a.text-dark:hover {
   min-width: 100%;
 }
 
+#addReply {
+  background-color: #eeeeee;
+}
+
 @media (min-width: 768px) {
   #blog .card-body {
     min-height: 234px;

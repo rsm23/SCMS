@@ -30,6 +30,11 @@ class Post extends Model
         ];
     }
 
+    public function path()
+    {
+        return '/blog/'.$this->slug;
+    }
+
     /**
      * A post belongs to a user.
      *

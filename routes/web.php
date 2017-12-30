@@ -29,7 +29,7 @@ Route::get('/blog/{post}', 'PostsController@show')->name('blogPost');
 Route::get('/blog/{post}/edit', 'PostsController@edit')->name('blogPostEdit')->middleware('auth');
 Route::patch('/blog/{post}', 'PostsController@update')->name('blogPostUpdate')->middleware('auth');
 Route::delete('/blog/{post}', 'PostsController@destroy')->name('blogPostDelete')->middleware('auth');
-Route::post('/blog/{post}/replies', 'RepliesController@store');
+Route::post('/blog/{post}/replies', 'RepliesController@store')->name('blogAddReply');
 
 //Administration routes
 Route::get('/dashboard', 'DashboardController@index')->name('blog')->name('dashboard')->middleware('auth');
