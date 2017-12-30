@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,8 @@ class PostsController extends Controller
     public function create()
     {
         auth()->user()->authorizeRoles(['editor', 'admin']);
-
-        return view('blog.create');
+        $categories = Category::all();
+        return view('blog.create', compact('categories'));
     }
 
     /**
@@ -44,7 +45,8 @@ class PostsController extends Controller
 
         $request->validate([
             'title'          => 'required|max:255|min:4',
-            'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id'    => 'required|exists:categories,id',
+            'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'body'           => 'required',
         ]);
 
@@ -54,6 +56,7 @@ class PostsController extends Controller
         Post::create([
             'user_id'        => auth()->id(),
             'title'          => $request->title,
+            'category_id'    => $request->category_id,
             'featured_image' => $image,
             'body'           => $request->body
         ]);
@@ -63,17 +66,18 @@ class PostsController extends Controller
 
     public function addReply()
     {
-        
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post $post
+     * @param \App\Category $category
+     * @param  \App\Post    $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Category $category, Post $post)
     {
         return view('blog.show', compact('post'));
     }
@@ -81,16 +85,18 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post $post
+     * @param \App\Category $category
+     * @param  \App\Post    $post
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Category $category, Post $post)
     {
+        $categories = $category->all();
         if (auth()->user()->can('update', $post)) {
-            return view('blog.edit', compact('post'));
+            return view('blog.edit', compact(['post' => 'post', 'categories' => 'categories']));
         } else {
-            return redirect('/home');
+            return redirect($post->path());
         }
     }
 
@@ -98,17 +104,19 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
+     * @param \App\Category             $category
      * @param  \App\Post                $post
      *
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Category $category, Post $post)
     {
         $this->authorize('update', $post);
 
         $request->validate([
             'title'          => 'required|max:255|min:4',
+            'category_id'    => 'required|exists:categories,id',
             'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'body'           => 'required',
         ]);
@@ -122,10 +130,11 @@ class PostsController extends Controller
             'user_id'        => auth()->id(),
             'title'          => $request->title,
             'featured_image' => $image,
+            'category_id'    => $request->category_id,
             'body'           => $request->body
         ]);
 
-        return redirect('/blog/' . $post->slug . '/edit');
+        return redirect($post->path());
     }
 
     /**

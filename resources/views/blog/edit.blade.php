@@ -17,7 +17,7 @@
             </div>
         @endif
         
-        <form method="post" action="{{ route('blogPostUpdate', $post->slug) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('blogPostUpdate', [$post->category, $post->slug]) }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
 
@@ -33,11 +33,29 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Title</label>
-                <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp"
-                       placeholder="Your Title Here" value="{{ old('title') ?: $post->title }}">
-                <small id="titleHelp" class="form-text text-muted">Should be more than 4 characters</small>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp"
+                               placeholder="Your Title Here" value="{{ old('title') ?: $post->title }}">
+                        <small id="titleHelp" class="form-text text-muted">Should be more than 4 characters</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="category_id">Category</label>
+                        <select name="category_id" id="category_id" class="form-control" required>
+                            <option value="">Choose One...</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{ $post->category_id == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <small id="titleHelp" class="form-text text-muted">The category is obligatory</small>
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">

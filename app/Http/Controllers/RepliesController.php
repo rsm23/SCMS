@@ -11,14 +11,16 @@ class RepliesController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
+
     /**
      * Store a newly created resource in storage.
      *
+     * @param           $channelId
      * @param \App\Post $post
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Post $post)
+    public function store($channelId, Post $post)
     {
         $post->addReply([
             'body' => request('body'),

@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    use Sluggable;
+
+    protected $guarded = [];
+
     public function getRouteKeyName()
     {
         return 'slug';
     }
-
-    protected $fillable = ['user_id', 'title', 'featured_image', 'body'];
-
-    use Sluggable;
 
     /**
      * Return the sluggable configuration array for this model.
@@ -32,7 +32,7 @@ class Post extends Model
 
     public function path()
     {
-        return '/blog/'.$this->slug;
+        return '/blog/' . $this->category->slug . '/' .$this->slug;
     }
 
     /**
@@ -46,6 +46,26 @@ class Post extends Model
     }
 
     /**
+     * Every post belongs to a channel.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    /**
+     * The post model is the responsible for adding replies.
+     *
+     * @param $reply
+     */
+    public function addReply($reply)
+    {
+        $this->replies()->create($reply);
+    }
+
+    /**
      * A post has many replies.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -53,10 +73,5 @@ class Post extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class);
-    }
-
-    public function addReply($reply)
-    {
-        $this->replies()->create($reply);
     }
 }
