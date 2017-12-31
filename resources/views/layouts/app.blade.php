@@ -32,12 +32,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="nav nav-pills">
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Blog</a>
-                        <div class="dropdown-menu">
-                            <a href="{{ route('blog') }}" class="dropdown-item">Visit Blog</a>
-                            <a href="{{ route('blogPostCreate') }}" class="dropdown-item">Create Blog Post</a>
-                        </div>
+                        <a class="nav-link dropdown-toggle" href="{{ route('blog') }}" id="navbarDropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Blog
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('blog') }}" class="dropdown-item">Visit Blog</a></li>
+                            <li><a href="{{ route('blogPostCreate') }}" class="dropdown-item">Create Blog Post</a></li>
+                            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Categories</a>
+                                <ul class="dropdown-menu">
+                                    @foreach ($categories as $category)
+                                        <li><a href="/blog/{{ $category->slug }}" class="dropdown-item">{{ $category->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -72,12 +81,29 @@
     </nav>
 
     <!-- Main Container -->
-        @yield('content')
+    @yield('content')
 
 </div>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script>
+    $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+        if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+        }
+        var $subMenu = $(this).next(".dropdown-menu");
+        $subMenu.toggleClass('show');
+
+
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+            $('.dropdown-submenu .show').removeClass("show");
+        });
+
+
+        return false;
+    });
+</script>
 @yield('footer')
 </body>
 </html>

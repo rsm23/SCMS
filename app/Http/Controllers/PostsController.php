@@ -11,11 +11,17 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \App\Category $category
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        $posts = Post::latest()->get();
+        if($category->exists){
+            $posts = $category->posts()->latest()->get();
+        } else {
+            $posts = Post::latest()->get();
+        }
 
         return view('blog.index', compact('posts'));
     }
