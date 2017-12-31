@@ -23,8 +23,8 @@ Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middle
 
 //Blog routes
 Route::get('/blog', 'PostsController@index')->name('blog');
-Route::get('/blog/{category}', 'PostsController@index');
 Route::get('/blog/create', 'PostsController@create')->name('blogPostCreate')->middleware('auth');
+Route::get('/blog/{category}', 'PostsController@index');
 Route::post('/blog', 'PostsController@store')->name('blogPostStore')->middleware('auth');
 Route::get('/blog/{category}/{post}', 'PostsController@show')->name('blogPost');
 Route::get('/blog/{category}/{post}/edit', 'PostsController@edit')->name('blogPostEdit')->middleware('auth');
