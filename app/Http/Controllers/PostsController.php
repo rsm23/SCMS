@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -18,10 +19,17 @@ class PostsController extends Controller
     public function index(Category $category)
     {
         if($category->exists){
-            $posts = $category->posts()->latest()->get();
+            $posts = $category->posts()->latest();
         } else {
-            $posts = Post::latest()->get();
+            $posts = Post::latest();
         }
+
+        if($name = request('by')){
+            $user = User::where('name', $name)->firstOrFail();
+            $posts->where('user_id', $user->id);
+        }
+
+        $posts = $posts->get();
 
         return view('blog.index', compact('posts'));
     }

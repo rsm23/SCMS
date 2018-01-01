@@ -38,7 +38,9 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('blog') }}" class="dropdown-item">Visit Blog</a></li>
-                            <li><a href="{{ route('blogPostCreate') }}" class="dropdown-item">Create Blog Post</a></li>
+                            @if (auth()->check())
+                                <li><a href="/blog?by={{ auth()->user()->name }}" class="dropdown-item">My Blog Posts</a></li>
+                            @endif
                             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Categories</a>
                                 <ul class="dropdown-menu">
                                     @foreach ($categories as $category)
