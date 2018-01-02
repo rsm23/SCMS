@@ -10746,7 +10746,7 @@ a:hover {
 }
 @media (min-width: 768px) {
   #blog .card-body {
-    min-height: 234px;
+    min-height: 255px;
   }
 }
 

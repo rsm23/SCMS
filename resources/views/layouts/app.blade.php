@@ -39,6 +39,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('blog') }}" class="dropdown-item">Visit Blog</a></li>
                             @if (auth()->check())
+                                <li><a href="{{ route('blogPostCreate') }}" class="dropdown-item">Create a blog post</a></li>
                                 <li><a href="/blog?by={{ auth()->user()->name }}" class="dropdown-item">My Blog
                                         Posts</a></li>
                             @endif

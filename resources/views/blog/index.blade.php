@@ -11,6 +11,7 @@
                         <div class="card-body justify-content-between">
                             <a href="{{ $post->path() }}"><h4
                                         class="card-title">{{ str_limit($post->title,$words = 48, $end='...') }}</h4></a>
+                            <h6 class="card-subtitle mb-2 text-muted">Posted {{ $post->created_at->diffForHumans() }}</h6>
                             <p class="card-text">{{ str_limit($post->body,$words = 100, $end='...') }}</p>
                             <a href="/blog/{{ $post->slug }}" class="btn btn-primary">Read More</a>
                         </div>

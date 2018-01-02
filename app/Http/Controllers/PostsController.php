@@ -18,13 +18,13 @@ class PostsController extends Controller
      */
     public function index(Category $category)
     {
-        if($category->exists){
+        if ($category->exists) {
             $posts = $category->posts()->latest();
         } else {
             $posts = Post::latest();
         }
 
-        if($name = request('by')){
+        if ($name = request('by')) {
             $user = User::where('name', $name)->firstOrFail();
             $posts->where('user_id', $user->id);
         }
@@ -43,6 +43,7 @@ class PostsController extends Controller
     {
         auth()->user()->authorizeRoles(['editor', 'admin']);
         $categories = Category::all();
+
         return view('blog.create', compact('categories'));
     }
 
@@ -64,23 +65,15 @@ class PostsController extends Controller
             'body'           => 'required',
         ]);
 
-        $image = url($request->file('featured_image')->store('uploads/posts/featured',
-            'public'));
+        if ($image = $request->file('featured_image')) {
+            url($image->store('uploads/posts/featured',
+                'public'));
+        }
+        $request->request->add(['user_id' => auth()->id()]);
 
-        Post::create([
-            'user_id'        => auth()->id(),
-            'title'          => $request->title,
-            'category_id'    => $request->category_id,
-            'featured_image' => $image,
-            'body'           => $request->body
-        ]);
+        Post::create($request->all());
 
         return redirect('/blog/');
-    }
-
-    public function addReply()
-    {
-
     }
 
     /**
@@ -135,18 +128,14 @@ class PostsController extends Controller
             'body'           => 'required',
         ]);
 
-        ($request->file('featured_image')) ? $image = url($request->file('featured_image')->store('uploads/posts/featured',
-            'public')) : $image = $post->featured_image;
+        if ($image = $request->file('featured_image')){
+            url($image->store('uploads/posts/featured',
+                'public'));
+        }
 
         $post->slug = null;
-
-        $post->update([
-            'user_id'        => auth()->id(),
-            'title'          => $request->title,
-            'featured_image' => $image,
-            'category_id'    => $request->category_id,
-            'body'           => $request->body
-        ]);
+        $request->request->add(['user_id' => auth()->id()]);
+        $post->update($request->all());
 
         return redirect($post->path());
     }
@@ -154,13 +143,14 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post $post
+     * @param \App\Category $category
+     * @param  \App\Post    $post
      *
      * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Exception
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function destroy(Post $post)
+    public function destroy(Category $category, Post $post)
     {
         $this->authorize('update', $post);
 
