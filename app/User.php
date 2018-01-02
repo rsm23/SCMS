@@ -32,6 +32,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Change the default route-model binding key.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+    /**
      * A user may have many posts.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -41,6 +51,15 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    /**
+     * A User has many replies.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
     /**
      * @param string|array $roles
      *

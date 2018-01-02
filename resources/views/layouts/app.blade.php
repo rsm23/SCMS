@@ -39,12 +39,15 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('blog') }}" class="dropdown-item">Visit Blog</a></li>
                             @if (auth()->check())
-                                <li><a href="/blog?by={{ auth()->user()->name }}" class="dropdown-item">My Blog Posts</a></li>
+                                <li><a href="/blog?by={{ auth()->user()->name }}" class="dropdown-item">My Blog
+                                        Posts</a></li>
                             @endif
-                            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Categories</a>
+                            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle"
+                                                            href="#">Categories</a>
                                 <ul class="dropdown-menu">
                                     @foreach ($categories as $category)
-                                        <li><a href="/blog/{{ $category->slug }}" class="dropdown-item">{{ $category->name }}</a></li>
+                                        <li><a href="/blog/{{ $category->slug }}"
+                                               class="dropdown-item">{{ $category->name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -64,26 +67,29 @@
                                data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a href="{{ route('logout') }}" class="dropdown-item"
-                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
+                            @if (auth()->check())
+                                <a href="/profiles/{{ auth()->user()->name }}" class="dropdown-item">Visit profile</a>
+                            @endif
+                        <a href="{{ route('logout') }}" class="dropdown-item"
+                           onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
-                        </li>
-                    @endif
-                </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
             </div>
+            </li>
+            @endif
+            </ul>
         </div>
+</div>
 
-    </nav>
+</nav>
 
-    <!-- Main Container -->
-    @yield('content')
+<!-- Main Container -->
+@yield('content')
 
 </div>
 

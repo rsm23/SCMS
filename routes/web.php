@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Users Routes
+Route::get('/profiles/{user}', 'ProfilesController@show');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth');
 
 //Blog routes
