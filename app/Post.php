@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Traits\Replyable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-    use Sluggable, Searchable;
+    use Sluggable, Searchable, Replyable;
 
     protected $guarded = [];
 
@@ -54,25 +55,5 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
-    }
-
-    /**
-     * The post model is the responsible for adding replies.
-     *
-     * @param $reply
-     */
-    public function addReply($reply)
-    {
-        $this->replies()->create($reply);
-    }
-
-    /**
-     * A post has many replies.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function replies()
-    {
-        return $this->hasMany(Reply::class);
     }
 }

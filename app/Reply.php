@@ -13,14 +13,9 @@ class Reply extends Model
      */
     protected $guarded = [];
 
-    /**
-     * A reply belongs to a post.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function post()
+    public function replyable()
     {
-        return $this->belongsTo(Post::class, 'post_id');
+        return $this->morphTo();
     }
 
     /**

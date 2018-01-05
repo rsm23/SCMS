@@ -22,7 +22,7 @@ class RepliesController extends Controller
      */
     public function store($channelId, Post $post)
     {
-        $post->addReply([
+        $post->reply([
             'body' => request('body'),
             'user_id' => auth()->id()
         ]);
