@@ -13,11 +13,6 @@ class Thread extends Model
 
     protected $guarded = [];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     /**
      * Return the sluggable configuration array for this model.
      *
@@ -30,5 +25,35 @@ class Thread extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function path()
+    {
+        return '/forum/' . $this->category->slug . '/' .$this->slug;
+    }
+
+    /**
+     * A post belongs to a user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * Every post belongs to a channel.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

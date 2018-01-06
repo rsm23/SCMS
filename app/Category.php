@@ -44,8 +44,23 @@ class Category extends Model
         ];
     }
 
+    /**
+     * A Category has many blog posts.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    /**
+     * A Category has many forum threads.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
     }
 }

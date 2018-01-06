@@ -33,5 +33,16 @@ Route::patch('/blog/{category}/{post}', 'PostsController@update')->name('blogPos
 Route::delete('/blog/{category}/{post}', 'PostsController@destroy')->name('blogPostDelete')->middleware('auth');
 Route::post('/blog/{category}/{post}/replies', 'RepliesController@store')->name('blogAddReply');
 
+//Forum routes
+Route::get('/forum', 'ThreadsController@index')->name('forum');
+Route::get('/forum/create', 'ThreadsController@create')->name('forumThreadCreate')->middleware('auth');
+Route::get('/forum/{category}', 'ThreadsController@index');
+Route::post('/forum', 'ThreadsController@store')->name('forumThreadStore')->middleware('auth');
+Route::get('/forum/{category}/{thread}', 'ThreadsController@show')->name('forumThread');
+Route::get('/forum/{category}/{thread}/edit', 'ThreadsController@edit')->name('forumThreadEdit')->middleware('auth');
+Route::patch('/forum/{category}/{thread}', 'ThreadsController@update')->name('forumThreadUpdate')->middleware('auth');
+Route::delete('/forum/{category}/{thread}', 'ThreadsController@destroy')->name('forumThreadDelete')->middleware('auth');
+Route::post('/forum/{category}/{thread}/replies', 'RepliesController@store')->name('forumAddReply');
+
 //Administration routes
 Route::get('/dashboard', 'DashboardController@index')->name('blog')->name('dashboard')->middleware('auth');

@@ -60,6 +60,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reply::class);
     }
+
+    /**
+     * A User has many threads.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function threads()
+    {
+        return $this->hasMany(Thread::class);
+    }
     /**
      * @param string|array $roles
      *

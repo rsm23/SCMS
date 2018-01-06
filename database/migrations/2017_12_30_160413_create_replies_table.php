@@ -20,8 +20,6 @@ class CreateRepliesTable extends Migration
             $table->integer('replyable_id');
             $table->string('replyable_type');
             $table->timestamps();
-
-            //$table->unique(['user_id','replyable_id','replyable_type']);
         });
     }
 
