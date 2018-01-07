@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Post;
+use App\Thread;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -23,9 +25,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        Route::bind('thread', function ($value) {
+            return Thread::where('slug', $value)->firstOrFail();
+        });
+
+        Route::bind('post', function ($value) {
+            return Post::where('slug', $value)->firstOrFail();
+        });
+
     }
 
     /**

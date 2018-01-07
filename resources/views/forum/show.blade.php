@@ -23,11 +23,12 @@
         <div class="container">
             @if (auth()->check())
                 <div class="row mt-5">
-                    <form action="{{ route('blogAddReply', [$thread->category, $thread->slug]) }}" method="POST" style="width: 100%">
+                    <form action="{{ route('forumAddReply', [$thread->category, $thread->slug]) }}" method="POST"
+                          style="width: 100%">
                         {{ csrf_field() }}
                         <div class="form-group">
-                    <textarea name="body" id="reply" class="form-control"
-                              placeholder="Have something to say?"></textarea>
+                            <textarea name="body" id="reply" class="form-control"
+                                      placeholder="Have something to say?"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary float-right">Post reply</button>
                     </form>

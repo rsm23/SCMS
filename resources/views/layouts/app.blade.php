@@ -27,6 +27,7 @@
             </button>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{{ route('forum') }}" class="nav-link">Forum</a></li>
             </ul>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

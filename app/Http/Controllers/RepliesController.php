@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Reply;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class RepliesController extends Controller
@@ -15,16 +16,17 @@ class RepliesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param           $channelId
-     * @param \App\Post $post
+     * @param                                     $categoryId
+     *
+     * @param \Illuminate\Database\Eloquent\Model $model
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store($channelId, Post $post)
+    public function store($categoryId, Model $model)
     {
-        $post->reply([
-            'body' => request('body'),
-            'user_id' => auth()->id()
+        $model->reply([
+            'user_id' => auth()->id(),
+            'body' => request('body')
         ]);
 
         return back();
