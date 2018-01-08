@@ -44,6 +44,55 @@ class ThreadsController extends Controller
      */
     public function show(Category $category, Thread $thread)
     {
-        return view('forum.show', compact('thread'));
+        $edited = false;
+
+        if($id = $thread->edited_by){
+            $edited = User::findOrFail($id);
+        }
+        return view('forum.show', compact(['thread' => 'thread', 'edited' => 'edited']));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param \App\Category $category
+     * @param \App\Thread   $thread
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Category $category, Thread $thread)
+    {
+        if (auth()->user()->can('update', $thread)) {
+            return view('forum.edit', compact('thread'));
+        } else {
+            return redirect($thread->path());
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param \App\Category             $category
+     * @param \App\Thread               $thread
+     *
+     * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(Request $request, Category $category, Thread $thread)
+    {
+        $this->authorize('update', $thread);
+
+        $request->validate([
+            'title'          => 'required|max:255|min:4',
+            'category_id'    => 'required|exists:categories,id',
+            'body'           => 'required',
+        ]);
+
+        $thread->slug = null;
+        $request->request->add(['edited_by' => auth()->id()]);
+        $thread->update($request->all());
+
+        return redirect($thread->path());
     }
 }

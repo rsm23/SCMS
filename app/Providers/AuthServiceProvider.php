@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Policies\PostPolicy;
+use App\Policies\ThreadPolicy;
 use App\Post;
+use App\Thread;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -15,7 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Post::class => PostPolicy::class
+        Post::class => PostPolicy::class,
+        Thread::class => ThreadPolicy::class
     ];
 
     /**
@@ -26,7 +29,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
     }
 }

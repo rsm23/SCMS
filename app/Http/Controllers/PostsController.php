@@ -86,7 +86,12 @@ class PostsController extends Controller
      */
     public function show(Category $category, Post $post)
     {
-        return view('blog.show', compact('post'));
+        $edited = false;
+
+        if($id = $post->edited_by){
+            $edited = User::findOrFail($id);
+        }
+        return view('blog.show', compact(['post' => 'post', 'edited' => 'edited']));
     }
 
     /**
@@ -134,7 +139,7 @@ class PostsController extends Controller
         }
 
         $post->slug = null;
-        $request->request->add(['user_id' => auth()->id()]);
+        $request->request->add(['edited_by' => auth()->id()]);
         $post->update($request->all());
 
         return redirect($post->path());

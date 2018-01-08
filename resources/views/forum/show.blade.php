@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="row">
             <article class="card blog-body">
                 <div class="card-body">
                     <h5 class="card-title"><a href="#">{{ $thread->owner->name }}</a></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $thread->created_at->diffForHumans() }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $thread->created_at->diffForHumans() }}{!!  ($edited) ? '<span class="text-success float-right"> Edited by : '.$edited->name.'</span>' : ''  !!}</h6>
                     @markdown($thread->body)
                 </div>
             </article>

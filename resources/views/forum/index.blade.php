@@ -14,8 +14,8 @@
                         </div>
                         @can('update', $thread)
                             <div class="card-footer text-muted d-flex justify-content-between">
-                                <a href="{{ route('forumPostEdit', [$thread->category, $thread]) }}" class="btn btn-success">Edit</a>
-                                <form action="{{ route('forumPostDelete', [$thread->category, $thread]) }}" method="post" class="forumPostDelete" data-title="{{ $thread->title }}">
+                                <a href="{{ route('forumThreadEdit', [$thread->category, $thread]) }}" class="btn btn-success">Edit</a>
+                                <form action="{{ route('forumThreadDelete', [$thread->category, $thread]) }}" method="post" class="forumThreadDelete" data-title="{{ $thread->title }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger">Delete</button>

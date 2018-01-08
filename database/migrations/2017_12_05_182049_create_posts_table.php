@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('edited_by')->nullable();
             $table->unsignedInteger('category_id');
             $table->string('title');
             $table->text('featured_image')->default('/images/default-thumb.png');;
